@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text starText;
 
+    public int finalScore;
+
     private int score;
     private int stars;
     private int health = 1;
@@ -70,6 +72,11 @@ public class GameController : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public int getScore()
+    {
+        return score;
+    }
+
     public void IncrementScore(int value) {
         SetScore(score + value);
     }
@@ -103,6 +110,15 @@ public class GameController : MonoBehaviour
         gameRunning = false;
         gameOverPanel.SetActive(true);
         Destroy(player);
+        finalScore = getScore();
+        print(finalScore);
+        PlayerPrefs.SetInt("Score",finalScore);
+        PlayerPrefs.Save();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void Restart() {
