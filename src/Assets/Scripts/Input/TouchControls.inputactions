@@ -1,0 +1,178 @@
+{
+    "name": "TouchControls",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "43d208c2-a649-4da2-a6b2-a79a020eab63",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "d920fd95-c5b5-46a8-b81d-ef2b6b3eea35",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4f121a98-a849-4232-805f-36f9db9e2612",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "id": "bfab1dc6-83d3-48ea-ae8e-6d2da2117ed4",
+            "actions": [
+                {
+                    "name": "FirePosition",
+                    "type": "Value",
+                    "id": "b4f67a0a-b09e-41e9-ac97-2a7407b0cfda",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "22ef4c20-9728-4021-ba1c-24966ef8a15e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e0607908-925b-4628-a122-cb99b1f6ebce",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Attitude To Vector 2",
+                    "id": "8c01be65-c2dd-4872-a4f7-b685d7c78153",
+                    "path": "AttitudeToVec2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "W",
+                    "id": "4e1d7f65-a632-49f7-85fe-6e2badd30e90",
+                    "path": "<AttitudeSensor>/attitude/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "X",
+                    "id": "2c226264-c19e-47ec-9ddb-b0ebcfe7633a",
+                    "path": "<AttitudeSensor>/attitude/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Y",
+                    "id": "f18d41e2-0c41-49dd-b00e-89ac71cea475",
+                    "path": "<AttitudeSensor>/attitude/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Z",
+                    "id": "690caaf5-578e-4af4-a24a-516c5c34ede4",
+                    "path": "<AttitudeSensor>/attitude/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "3de7fe99-6f2e-48b5-b5d3-19bc0d5714ad",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "af76d8df-f611-4374-813f-b90e262cf8e5",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "26923e70-8958-46ec-8141-091553b3e9ad",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "c6db24df-5c79-486f-a82d-6b7881bab846",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "53ea13f0-f2c0-49b9-9639-7c5e1cd38ff6",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

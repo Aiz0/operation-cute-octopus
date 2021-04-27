@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8763436113361802839}
   - component: {fileID: 8763436113361802836}
   - component: {fileID: 8763436113361802837}
-  - component: {fileID: 8763436113361802838}
   - component: {fileID: -7175764664548351459}
+  - component: {fileID: 6561481870286514450}
+  - component: {fileID: -8190822955015629676}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -111,21 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &8763436113361802838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8763436113361802842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2495372a57c54c0eb60132883650502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  speed: 3
-  effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
 --- !u!114 &-7175764664548351459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +125,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
+--- !u!114 &6561481870286514450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763436113361802842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858c6f44034fb202092f3f852ee0f3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 1
+--- !u!114 &-8190822955015629676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763436113361802842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369825acc31084cfdbbde6a4bf8904d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}

@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //Instantiate(effect, transform.position, Quaternion.identity);
-            GameController.gameControllerInstance.DecrementHealth(damage);
+            GameController.instance.DecrementHealth(damage);
             //Destroy(gameObject);
         }
     }
