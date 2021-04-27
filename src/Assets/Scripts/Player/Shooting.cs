@@ -18,10 +18,9 @@ public class Shooting : MonoBehaviour
         cameraMain = Camera.main;
     }
 
-    void Update() {
+    private void OnFire(){
        if (Input.touchCount > 0){
             Touch touch = Input.GetTouch(0);
-
             Fire(touch.position);
         }
     }
