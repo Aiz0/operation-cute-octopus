@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
 
     public int finalScore;
 
+    private Score scores;
+
     private int score;
     private int stars;
     private int health = 1;
@@ -112,8 +114,12 @@ public class GameController : MonoBehaviour
         Destroy(player);
         finalScore = getScore();
         print(finalScore);
+
         PlayerPrefs.SetInt("Score",finalScore);
         PlayerPrefs.Save();
+
+        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
+        scores.UpdateHighScore();
     }
 
     public void MainMenu()
