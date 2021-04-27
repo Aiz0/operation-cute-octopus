@@ -26,11 +26,8 @@ public class Shooting : MonoBehaviour
     }
 
     private void Fire(Vector2 screenPosition) {
-        if (gameController.GetInk() > 0) {
+        if (gameController.DecrementInk(1)) {
             FireProjectile(screenPosition);
-            gameController.DecrementInk(1);
-        } else {
-            gameController.ReloadInk();
         }
     }
 

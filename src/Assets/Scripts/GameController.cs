@@ -107,15 +107,22 @@ public class GameController : MonoBehaviour
         inkText.text = ink.ToString();
     }
 
-    public void DecrementInk(int value) {
-        SetInk(ink - value);
+    public bool DecrementInk(int value) {
+        if (ink - value >= 0){
+            SetInk(ink - value);
+            if (ink == 0) {
+                ReloadInk();
+            }
+            return true;
+        }
+        return false;
     }
 
     public int GetInk() {
         return ink;
     }
 
-    public void ReloadInk() {
+    private void ReloadInk() {
         if (!isReloading) {
             StartCoroutine(Reload());
         }
