@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
     void Awake(){
         gameControllerInstance = this;
         StartGame();
+        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
 
     private void StartGame() {
@@ -118,7 +119,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Score",finalScore);
         PlayerPrefs.Save();
 
-        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
+        
         scores.UpdateHighScore();
     }
 

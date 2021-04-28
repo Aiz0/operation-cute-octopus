@@ -9,15 +9,16 @@ public class Score : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        
+        UpdateHighScore();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
 
     public void UpdateHighScore()
@@ -28,13 +29,14 @@ public class Score : MonoBehaviour
         PlayerPrefs.SetInt("Score1", 0);
 
         int hej = PlayerPrefs.GetInt("Score");
-        test.text = score1.ToString();
+        //test.text = score1.ToString();
         print(hej);
 
         if (PlayerPrefs.GetInt("Score") >= PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
-            test.text = score1.ToString();
+            test.text = PlayerPrefs.GetInt("HighScore").ToString();
+            print(PlayerPrefs.GetInt("HighScore"));
         }
 
         PlayerPrefs.Save();
