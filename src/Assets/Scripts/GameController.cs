@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
-    public static GameController gameControllerInstance;
-
+    public static GameController instance;
 
     [SerializeField]
     private GameObject player;
@@ -18,6 +16,10 @@ public class GameController : MonoBehaviour
     private Vector2 direction = Vector2.down;
     [SerializeField]
     private float speed = 1;
+    [SerializeField]
+    private int maxInk = 1;
+    [SerializeField]
+    private float reloadTime;
 
     [SerializeField]
     private float scoreInterval;
@@ -26,15 +28,20 @@ public class GameController : MonoBehaviour
     private Text scoreText;
     [SerializeField]
     private Text starText;
+    [SerializeField]
+    private Text inkText;
 
     private int score;
     private int stars;
     private int health = 1;
+    // ink that can be fired
+    private int ink = 1;
 
+    private bool isReloading = false;
     private bool gameRunning = false;
 
     void Awake(){
-        gameControllerInstance = this;
+        instance = this;
         StartGame();
     }
 
@@ -44,6 +51,7 @@ public class GameController : MonoBehaviour
 
         SetScore(0);
         SetStars(0);
+        SetInk(maxInk);
 
         StartCoroutine(ScoreLoop());
     }
@@ -92,6 +100,39 @@ public class GameController : MonoBehaviour
 
     public void DecrementHealth(int value) {
         SetHealth(health - value);
+    }
+
+    private void SetInk(int value) {
+        ink = value;
+        inkText.text = ink.ToString();
+    }
+
+    public bool DecrementInk(int value) {
+        if (ink - value >= 0){
+            SetInk(ink - value);
+            if (ink == 0) {
+                ReloadInk();
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public int GetInk() {
+        return ink;
+    }
+
+    private void ReloadInk() {
+        if (!isReloading) {
+            StartCoroutine(Reload());
+        }
+    }
+
+    private IEnumerator Reload() {
+        isReloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        SetInk(maxInk);
+        isReloading = false;
     }
 
     public bool IsRunning() {
