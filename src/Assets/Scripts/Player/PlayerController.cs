@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 axis;
     private Camera cameraMain;
 
-    private float xDirection;
-
     private float xBounds;
     private float yBounds;
 
@@ -37,25 +35,39 @@ public class PlayerController : MonoBehaviour
         Debug.Log("yBounds: " + yBounds);
     }
     void Update() {
-        xDirection = Input.acceleration.x;
-
-        transform.position = new Vector2(
-            Mathf.Clamp(transform.position.x,-1 * xBounds, xBounds  ),
-            Mathf.Clamp(transform.position.y, -1 * yBounds, yBounds)
-        );
+        ClampPosition();
     }
 
     void FixedUpdate() {
-        Move();
+        if(axis.x == 0){
+            Move(getAcceleration());
+        }else{
+            Move(axis.x);
+        }
     }
 
-    private void Move() {
+    public void OnMove(InputValue input){
+        axis = input.Get<Vector2>();
+    }
+
+    private float getAcceleration(){
+        return Input.acceleration.x;
+    }
+
+    private void Move(float xDirection) {
         rb2D.AddForce(
             new Vector2(
                 xDirection * horizontalMoveSpeed - rb2D.velocity.x,
                 0
             ),
             ForceMode2D.Impulse
+        );
+    }
+
+    private void ClampPosition(){
+        transform.position = new Vector2(
+            Mathf.Clamp(transform.position.x,-1 * xBounds, xBounds  ),
+            Mathf.Clamp(transform.position.y, -1 * yBounds, yBounds)
         );
     }
 }
