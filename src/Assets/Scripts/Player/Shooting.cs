@@ -19,10 +19,8 @@ public class Shooting : MonoBehaviour
     }
 
     private void OnFire(){
-       if (Input.touchCount > 0){
-            Touch touch = Input.GetTouch(0);
-            Fire(touch.position);
-        }
+        Vector2 position = Input.mousePosition;
+        Fire(position);
     }
 
     private void Fire(Vector2 screenPosition) {
