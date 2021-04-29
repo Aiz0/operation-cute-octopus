@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     private Text starText;
 
     public int finalScore;
+    public int finalStars;
 
     private Score scores;
 
@@ -80,6 +81,11 @@ public class GameController : MonoBehaviour
         return score;
     }
 
+    public int getStars()
+    {
+        return stars;
+    }
+
     public void IncrementScore(int value) {
         SetScore(score + value);
     }
@@ -114,13 +120,16 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(true);
         Destroy(player);
         finalScore = getScore();
+        finalStars = getStars();
         print(finalScore);
 
-        PlayerPrefs.SetInt("Score",finalScore);
+        PlayerPrefs.SetInt("Score", finalScore);
+        PlayerPrefs.SetInt("Stars",finalStars);
         PlayerPrefs.Save();
 
         
         scores.UpdateHighScore();
+        scores.UpdateTotalStars();
     }
 
     public void MainMenu()

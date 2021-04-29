@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text test;
+    public Text highScoreText;
+    public Text totalStarsText;
 
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateHighScore();
+        UpdateTotalStars();
 
     }
 
@@ -23,11 +25,6 @@ public class Score : MonoBehaviour
 
     public void UpdateHighScore()
     {
-        int score1 = PlayerPrefs.GetInt("HighScore");
-
-
-        PlayerPrefs.SetInt("Score1", 0);
-
         int hej = PlayerPrefs.GetInt("Score");
         //test.text = score1.ToString();
         print(hej);
@@ -35,11 +32,23 @@ public class Score : MonoBehaviour
         if (PlayerPrefs.GetInt("Score") >= PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
-            test.text = PlayerPrefs.GetInt("HighScore").ToString();
+            highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
             print(PlayerPrefs.GetInt("HighScore"));
         }
 
         PlayerPrefs.Save();
 
+    }
+
+    public void UpdateTotalStars()
+    {
+        int newStars = PlayerPrefs.GetInt("Stars");
+        int totalStars = PlayerPrefs.GetInt("TotalStars");
+        int addStars = newStars + totalStars;
+        PlayerPrefs.SetInt("TotalStars",addStars);
+        PlayerPrefs.SetInt("Stars", 0);
+        totalStarsText.text = PlayerPrefs.GetInt("TotalStars").ToString();
+        print("hej" + PlayerPrefs.GetInt("TotalStars"));
+         
     }
 }
