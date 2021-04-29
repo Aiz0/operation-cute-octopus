@@ -31,6 +31,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text inkText;
 
+    public int finalScore;
+
+    private Score scores;
+
     private int score;
     private int stars;
     private int health = 1;
@@ -43,6 +47,7 @@ public class GameController : MonoBehaviour
     void Awake(){
         instance = this;
         StartGame();
+        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
 
     private void StartGame() {
@@ -76,6 +81,11 @@ public class GameController : MonoBehaviour
     private void SetScore(int value) {
         score = value;
         scoreText.text = score.ToString();
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 
     public void IncrementScore(int value) {
@@ -144,6 +154,19 @@ public class GameController : MonoBehaviour
         gameRunning = false;
         gameOverPanel.SetActive(true);
         Destroy(player);
+        finalScore = getScore();
+        print(finalScore);
+
+        PlayerPrefs.SetInt("Score",finalScore);
+        PlayerPrefs.Save();
+
+        
+        scores.UpdateHighScore();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void Restart() {
