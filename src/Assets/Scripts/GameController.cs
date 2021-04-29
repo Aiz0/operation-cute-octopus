@@ -35,10 +35,6 @@ public class GameController : MonoBehaviour
 
     private Score scores;
 
-    public int finalScore;
-
-    private Score scores;
-
     private int score;
     private int stars;
     private int health = 1;
