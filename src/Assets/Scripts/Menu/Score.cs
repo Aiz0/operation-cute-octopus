@@ -25,15 +25,10 @@ public class Score : MonoBehaviour
 
     public void UpdateHighScore()
     {
-        int hej = PlayerPrefs.GetInt("Score");
-        //test.text = score1.ToString();
-        print(hej);
-
         if (PlayerPrefs.GetInt("Score") >= PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
             highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
-            print(PlayerPrefs.GetInt("HighScore"));
         }
 
         PlayerPrefs.Save();
@@ -48,7 +43,6 @@ public class Score : MonoBehaviour
         PlayerPrefs.SetInt("TotalStars",addStars);
         PlayerPrefs.SetInt("Stars", 0);
         totalStarsText.text = PlayerPrefs.GetInt("TotalStars").ToString();
-        print("hej" + PlayerPrefs.GetInt("TotalStars"));
-         
+        PlayerPrefs.Save();
     }
 }
