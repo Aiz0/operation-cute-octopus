@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 3
   effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
 --- !u!114 &-7175764664548351459
 MonoBehaviour:
@@ -138,4 +137,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48dc10baa680407db6dd7ae1f676f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 13
