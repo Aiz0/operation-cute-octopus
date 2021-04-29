@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 4104930677290746194}
   - component: {fileID: 4104930677290746195}
   - component: {fileID: 4104930677290746192}
-  - component: {fileID: 4104930677290746193}
+  - component: {fileID: -575423540356877725}
+  - component: {fileID: 8253854040324406355}
+  - component: {fileID: 6030149120283425334}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -110,7 +112,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4104930677290746193
+--- !u!114 &-575423540356877725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,12 +121,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 4104930677290746198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902a77844a06547e387f1d7285b48229, type: 3}
+  m_Script: {fileID: 11500000, guid: 858c6f44034fb202092f3f852ee0f3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  speedForward: 3
-  speedVertical: 2
-  maxHeight: 2
-  minHeight: -2
+  speedMultiplier: 1.5
+--- !u!114 &8253854040324406355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104930677290746198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369825acc31084cfdbbde6a4bf8904d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
   effect: {fileID: 0}
+--- !u!114 &6030149120283425334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104930677290746198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48dc10baa680407db6dd7ae1f676f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 0
