@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
                     currentRotation = targetRotation;
                 }
             } else {
-                currentRotation -= 10 * Math.Sign(currentRotation);
+                currentRotation -= rotationSpeed * Math.Sign(currentRotation);
                 if(Math.Abs(currentRotation) > 0 && Math.Abs(currentRotation) - rotationSpeed < 0){
                     currentRotation = targetRotation;
                 }
