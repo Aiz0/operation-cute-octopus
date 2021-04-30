@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     }
 
     private IEnumerator SpawnLoop() {
-        while(GameController.gameControllerInstance.IsRunning()) {
+        while(GameController.instance.IsRunning()) {
             yield return new WaitForSeconds(interval);
             GameObject pattern = GetRandomPattern();
             SpawnObstacles(pattern);
