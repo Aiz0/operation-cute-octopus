@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [SerializeField]
-    private float speed = 1;
+    public float speed = 1;
     [SerializeField]
     private int maxInk = 1;
     [SerializeField]
