@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [SerializeField]
-    private float speed = 1;
+    public float speed = 1;
     [SerializeField]
     private int maxInk = 1;
     [SerializeField]
@@ -31,6 +31,11 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text inkText;
 
+    public int finalScore;
+    public int finalStars;
+
+    private Score scores;
+
     private int score;
     private int stars;
     private int health = 1;
@@ -43,6 +48,7 @@ public class GameController : MonoBehaviour
     void Awake(){
         instance = this;
         StartGame();
+        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
 
     private void StartGame() {
@@ -76,6 +82,16 @@ public class GameController : MonoBehaviour
     private void SetScore(int value) {
         score = value;
         scoreText.text = score.ToString();
+    }
+
+    public int getScore()
+    {
+        return score;
+    }
+
+    public int getStars()
+    {
+        return stars;
     }
 
     public void IncrementScore(int value) {
@@ -144,6 +160,22 @@ public class GameController : MonoBehaviour
         gameRunning = false;
         gameOverPanel.SetActive(true);
         Destroy(player);
+        finalScore = getScore();
+        finalStars = getStars();
+        print(finalScore);
+
+        PlayerPrefs.SetInt("Score", finalScore);
+        PlayerPrefs.SetInt("Stars",finalStars);
+        PlayerPrefs.Save();
+
+        
+        scores.UpdateHighScore();
+        scores.UpdateTotalStars();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void Restart() {
