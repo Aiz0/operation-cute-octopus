@@ -29,10 +29,16 @@ public class Score : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
             highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+            print(PlayerPrefs.GetInt("HighScore"));
+            
+        }
+        else
+        {
+            highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
         }
 
-        PlayerPrefs.Save();
 
+        PlayerPrefs.Save();
     }
 
     public void UpdateTotalStars()
