@@ -108,14 +108,4 @@ public class CameraAnchor : MonoBehaviour {
 			transform.position = newPos;
 		}
 	}
-
-#if UNITY_EDITOR
-	// Update is called once per frame
-	void Update () {
-		if (updateAnchorRoutine == null) {
-			updateAnchorRoutine = UpdateAnchorAsync();
-			StartCoroutine(updateAnchorRoutine);
-		}
-	}
-#endif
 }
