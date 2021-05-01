@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float horizontalMoveSpeed = 1;
-    [SerializeField]
-    private float verticalMoveSpeed = 1;
 
     [SerializeField]
     private float rotationSpeed = 10;
@@ -19,30 +17,20 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2D;
     private Vector2 axis;
-    private Camera cameraMain;
 
+    [SerializeField]
     private float xBounds;
-    private float yBounds;
 
     private float currentRotation;
     private float targetRotation;
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
-        cameraMain = Camera.main;
-
         if (AttitudeSensor.current != null) {
             InputSystem.EnableDevice(AttitudeSensor.current);
         }
     }
 
-    void Start(){
-        xBounds = cameraMain.aspect * cameraMain.orthographicSize;
-        yBounds = cameraMain.orthographicSize;
-
-        Debug.Log("xBounds: " + xBounds);
-        Debug.Log("yBounds: " + yBounds);
-    }
     void Update() {
         ClampPosition();
     }
@@ -99,7 +87,7 @@ public class PlayerController : MonoBehaviour
     private void ClampPosition(){
         transform.position = new Vector2(
             Mathf.Clamp(transform.position.x,-1 * xBounds, xBounds  ),
-            Mathf.Clamp(transform.position.y, -1 * yBounds, yBounds)
+            transform.position.y
         );
     }
 }
