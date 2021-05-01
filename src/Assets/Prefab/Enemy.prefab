@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8253854040324406355}
   - component: {fileID: 6030149120283425334}
   - component: {fileID: 8535808064191583995}
+  - component: {fileID: -7618879733033368607}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  effect: {fileID: 0}
+  effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
 --- !u!114 &6030149120283425334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,9 +137,22 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.39697745, y: 0.040505223}
   m_Size: {x: 2.3493466, y: 2.0901194}
   m_Direction: 1
+--- !u!114 &-7618879733033368607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104930677290746198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ba42601d3d3b6ea49dbaad37b870a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
