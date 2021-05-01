@@ -92,4 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75904fced57b711418308a95db5f364f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 6824043117476076020}
+  highScoreText: {fileID: 6824043117476076020}
+  totalStarsText: {fileID: 0}

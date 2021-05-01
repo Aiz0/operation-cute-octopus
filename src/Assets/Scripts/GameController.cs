@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [SerializeField]
-    private float speed = 1;
+    public float speed = 1;
     [SerializeField]
     private int maxInk = 1;
     [SerializeField]
@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     private Text inkText;
 
     public int finalScore;
+    public int finalStars;
 
     private Score scores;
 
@@ -86,6 +87,11 @@ public class GameController : MonoBehaviour
     public int getScore()
     {
         return score;
+    }
+
+    public int getStars()
+    {
+        return stars;
     }
 
     public void IncrementScore(int value) {
@@ -155,13 +161,16 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(true);
         Destroy(player);
         finalScore = getScore();
+        finalStars = getStars();
         print(finalScore);
 
-        PlayerPrefs.SetInt("Score",finalScore);
+        PlayerPrefs.SetInt("Score", finalScore);
+        PlayerPrefs.SetInt("Stars",finalStars);
         PlayerPrefs.Save();
 
         
         scores.UpdateHighScore();
+        scores.UpdateTotalStars();
     }
 
     public void MainMenu()
