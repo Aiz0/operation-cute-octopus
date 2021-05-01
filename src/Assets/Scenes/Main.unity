@@ -224,9 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalMoveSpeed: 5
-  verticalMoveSpeed: 5
   rotationSpeed: 10
   maxRotation: 45
+  xBounds: 2.5
 --- !u!50 &243286405
 Rigidbody2D:
   serializedVersion: 4
@@ -247,7 +247,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!114 &243286406
 MonoBehaviour:
   m_ObjectHideFlags: 0
