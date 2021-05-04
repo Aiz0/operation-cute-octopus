@@ -8,14 +8,18 @@ public class SpawnPoint : MonoBehaviour
     public GameObject enemy;
     public GameObject star;
 
-    //public int probabilityToSpawnStar;
-    //public int probabilityToSpawnEnemy;
+    public int probabilityToSpawnStar;
+    public int probabilityToSpawnEnemy;
 
-    void Start()
+    void Awake()
     {
         int rand = Random.Range(0, 100);
-        if(rand < 10) Instantiate(star, transform.position, Quaternion.identity);
-        else if(rand > 100 - 10) Instantiate(enemy, transform.position, Quaternion.identity);
+        if(rand < probabilityToSpawnStar) Instantiate(star, transform.position, Quaternion.identity);
+        else if(rand > 100 - probabilityToSpawnEnemy) Instantiate(enemy, transform.position, Quaternion.identity);
         else Instantiate(obstacle, transform.position, Quaternion.identity);
+    }
+
+    void Start(){
+        Destroy(transform.root.gameObject);
     }
 }

@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class RepeatingBG : MonoBehaviour
 {
-    public float speed;
+    public GameController gC;
+    private float speed;
+    [SerializeField]
+    private float endY;
+    [SerializeField]
+    private float startY;
 
-    public float endX;
-    public float startX;
+    private void Start()
+    {
+        speed = gC.GetSpeed();
+    }
 
     private void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * gC.GetSpeed() * Time.deltaTime);
 
-        if(transform.position.x <= endX)
+        if(transform.position.y <= endY)
         {
-            Vector2 pos = new Vector2(startX, transform.position.y);
+            Vector2 pos = new Vector2(transform.position.x, startY);
             transform.position = pos;
         }
     }
