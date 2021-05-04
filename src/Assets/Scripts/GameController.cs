@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public float speed = 1;
     [SerializeField]
+    private float increaseSpeedBy;
+    [SerializeField]
     private int maxInk = 1;
     [SerializeField]
     private float reloadTime;
@@ -176,6 +178,11 @@ public class GameController : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void increaseSpeed()
+    {
+        speed += increaseSpeedBy;
     }
 
     public void Restart() {

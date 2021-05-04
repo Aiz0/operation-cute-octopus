@@ -7,31 +7,31 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private GameObject[] patterns;
+    private int lastPattern;
 
+    private float spawnTime;
     [SerializeField]
-    private float startInterval;
-    private float currentInterval;
-    public float decreaseIntervalWith;
-    [SerializeField]
-    private float minInterval;
+    private float distance = 5.0f;
 
-    private float timer;
     void Start() {
         StartCoroutine(SpawnLoop());
-        currentInterval = startInterval;
     }
 
     private IEnumerator SpawnLoop() {
         while(GameController.instance.IsRunning()) {
-                yield return new WaitForSeconds(currentInterval);
+            spawnTime = distance / GameController.instance.speed;
+            yield return new WaitForSeconds(spawnTime);
                 GameObject pattern = GetRandomPattern();
                 SpawnObstacles(pattern);
-            if (currentInterval <= startInterval && currentInterval > minInterval) currentInterval -= decreaseIntervalWith; 
+            GameController.instance.increaseSpeed();
         }
     }
 
     private GameObject GetRandomPattern() {
         int rand = Random.Range(0, patterns.Length);
+        
+        while(rand == lastPattern) rand = Random.Range(0, patterns.Length);
+        lastPattern = rand;
         return patterns[rand];
     }
 

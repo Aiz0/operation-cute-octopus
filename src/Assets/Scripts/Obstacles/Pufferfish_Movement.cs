@@ -9,9 +9,11 @@ public class Pufferfish_Movement : MonoBehaviour
     [SerializeField]
     private float speedMultiplier = 1.5f;
 
-    private float timer;
-    [SerializeField] private float delayToPuff;
-    [SerializeField] private Animator animator;
+    [SerializeField]
+    private float puffAt = 3;
+
+    [SerializeField]
+    private Animator animator;
 
     private GameController gameController;
 
@@ -26,7 +28,6 @@ public class Pufferfish_Movement : MonoBehaviour
     private void Update()
     {
         transform.Translate(direction * speed * speedMultiplier * Time.deltaTime);
-        timer += Time.deltaTime;
-        if (timer >= delayToPuff) animator.SetBool("Puff", true);
+        if(transform.position.y <= puffAt) animator.SetBool("Puff", true);
     }
 }
