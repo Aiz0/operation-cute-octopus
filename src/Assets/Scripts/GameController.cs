@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
     private Text starText;
     [SerializeField]
     private Text inkText;
+    [SerializeField]
+    private Text healthText;
 
     public int finalScore;
     public int finalStars;
@@ -38,7 +40,9 @@ public class GameController : MonoBehaviour
 
     private int score;
     private int stars;
-    private int health = 1;
+
+
+    private int health;
     // ink that can be fired
     private int ink = 1;
 
@@ -54,6 +58,9 @@ public class GameController : MonoBehaviour
     private void StartGame() {
         gameRunning = true;
         gameOverPanel.SetActive(false);
+
+        UpdateHealth();
+
 
         SetScore(0);
         SetStars(0);
@@ -107,15 +114,24 @@ public class GameController : MonoBehaviour
         SetStars(stars + value);
     }
 
+    public void UpdateHealth()
+    {
+        SetHealth(PlayerPrefs.GetInt("Health"));
+        healthText.text = health.ToString();
+        print("Health" + PlayerPrefs.GetInt("Health"));
+    }
     private void SetHealth(int value) {
+
         health = value;
-        if(health <= 0) {
+        
+        if (health <= 0) {
             EndGame();
         }
     }
 
     public void DecrementHealth(int value) {
         SetHealth(health - value);
+        healthText.text = health.ToString();
     }
 
     private void SetInk(int value) {
