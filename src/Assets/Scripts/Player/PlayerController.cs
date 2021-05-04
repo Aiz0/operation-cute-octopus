@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    public PolygonCollider2D[] colliders;
+    public int currentColliderIndex = 0;
+    [SerializeField]
     private float horizontalMoveSpeed = 1;
     [SerializeField]
     private float verticalMoveSpeed = 1;
@@ -69,5 +72,12 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(transform.position.x,-1 * xBounds, xBounds  ),
             Mathf.Clamp(transform.position.y, -1 * yBounds, yBounds)
         );
+    }
+
+    public void SetColliderForSprite(int spriteNum)
+    {
+        colliders[currentColliderIndex].enabled = false;
+        currentColliderIndex = spriteNum;
+        colliders[currentColliderIndex].enabled = true;
     }
 }
