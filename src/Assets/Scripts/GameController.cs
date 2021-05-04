@@ -16,8 +16,10 @@ public class GameController : MonoBehaviour
     private Vector2 direction = Vector2.down;
     [SerializeField]
     public float speed = 1;
-    [SerializeField]
+    
+    /*[SerializeField]
     private int maxInk = 1;
+    */
     [SerializeField]
     private float reloadTime;
 
@@ -60,11 +62,11 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(false);
 
         UpdateHealth();
-
+        UpdateInk();
 
         SetScore(0);
         SetStars(0);
-        SetInk(maxInk);
+        //SetInk(maxInk);
 
         StartCoroutine(ScoreLoop());
     }
@@ -116,9 +118,29 @@ public class GameController : MonoBehaviour
 
     public void UpdateHealth()
     {
-        SetHealth(PlayerPrefs.GetInt("Health"));
-        healthText.text = health.ToString();
-        print("Health" + PlayerPrefs.GetInt("Health"));
+        if(PlayerPrefs.GetInt("Health") < 1)
+        {
+            PlayerPrefs.SetInt("Health", 1);
+        }
+        else
+        {
+            SetHealth(PlayerPrefs.GetInt("Health"));
+            healthText.text = health.ToString();
+        }
+    }
+
+    public void UpdateInk()
+    {
+        inkText.text = ink.ToString();
+
+        if (PlayerPrefs.GetInt("Ink") < 1)
+        {
+            PlayerPrefs.SetInt("Ink", 1);
+        }
+        else
+        {
+            SetInk(PlayerPrefs.GetInt("Ink"));
+        }
     }
     private void SetHealth(int value) {
 
@@ -163,7 +185,7 @@ public class GameController : MonoBehaviour
     private IEnumerator Reload() {
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
-        SetInk(maxInk);
+        UpdateInk();
         isReloading = false;
     }
 

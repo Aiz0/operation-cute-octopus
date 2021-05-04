@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - HighScore
   - Obstacle
+  - ShopButton
   layers:
   - Default
   - TransparentFX
