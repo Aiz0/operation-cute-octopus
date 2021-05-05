@@ -168,14 +168,9 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Stars",finalStars);
         PlayerPrefs.Save();
 
-        
+
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("Menu");
     }
 
     public void Restart() {
