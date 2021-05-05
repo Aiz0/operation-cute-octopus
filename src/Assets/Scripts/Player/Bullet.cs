@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public int damage = 1;
     public Rigidbody2D rb;
+    PlayerController octopus = new PlayerController();
 
     public string tagToIgnore = "Player";
     // Start is called before the first frame update
