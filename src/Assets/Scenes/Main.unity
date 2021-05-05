@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &243286402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   - {fileID: 8562764659509991137, guid: 4dd813d7fdedb456d9dd279ba1217984, type: 3}
   - {fileID: 8734725379586125639, guid: 09d375dc4f19641d5914eff77624e3dc, type: 3}
   - {fileID: 8789669558573053030, guid: a705247bfe65c4ef9a3585c83f64fc84, type: 3}
-  distance: 5
+  distancBetweenPatterns: 5
   maxSpeed: 15
 --- !u!4 &624523394
 Transform:
