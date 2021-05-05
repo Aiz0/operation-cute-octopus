@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-
-    public float lifeTime;
-
-    void Start()
-    {
-        Destroy(gameObject, lifeTime);
+    public void OnBecameInvisible(){
+        Destroy(gameObject);
     }
 }

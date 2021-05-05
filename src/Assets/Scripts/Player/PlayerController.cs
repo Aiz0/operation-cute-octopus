@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,42 +12,41 @@ public class PlayerController : MonoBehaviour
     public int currentColliderIndex = 0;
     [SerializeField]
     private float horizontalMoveSpeed = 1;
+
     [SerializeField]
-    private float verticalMoveSpeed = 1;
+    private float rotationSpeed = 10;
+    [SerializeField]
+    private float maxRotation = 45;
 
     private Rigidbody2D rb2D;
     private Vector2 axis;
-    private Camera cameraMain;
 
+    [SerializeField]
     private float xBounds;
-    private float yBounds;
+
+    private float currentRotation;
+    private float targetRotation;
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
-        cameraMain = Camera.main;
-
         if (AttitudeSensor.current != null) {
             InputSystem.EnableDevice(AttitudeSensor.current);
         }
     }
 
-    void Start(){
-        xBounds = cameraMain.aspect * cameraMain.orthographicSize;
-        yBounds = cameraMain.orthographicSize;
-
-        Debug.Log("xBounds: " + xBounds);
-        Debug.Log("yBounds: " + yBounds);
-    }
     void Update() {
         ClampPosition();
     }
 
     void FixedUpdate() {
+        float direction;
         if(axis.x == 0){
-            Move(getAcceleration());
+            direction = getAcceleration();
         }else{
-            Move(axis.x);
+            direction = axis.x;
         }
+        Move(direction);
+        Rotate(direction);
     }
 
     public void OnMove(InputValue input){
@@ -67,10 +67,30 @@ public class PlayerController : MonoBehaviour
         );
     }
 
+    private void Rotate(float direction) {
+        targetRotation = maxRotation * Math.Sign(direction * -1);
+        targetRotation *= (Math.Abs(rb2D.velocity.x) / horizontalMoveSpeed);
+
+        if (currentRotation != targetRotation){
+            if (targetRotation != 0){
+                currentRotation += rotationSpeed * Math.Sign(targetRotation);
+                if ((currentRotation > targetRotation && targetRotation > 0) || (currentRotation < targetRotation && targetRotation < 0)){
+                    currentRotation = targetRotation;
+                }
+            } else {
+                currentRotation -= rotationSpeed * Math.Sign(currentRotation);
+                if(Math.Abs(currentRotation) > 0 && Math.Abs(currentRotation) - rotationSpeed < 0){
+                    currentRotation = targetRotation;
+                }
+            }
+            transform.rotation = Quaternion.Euler(0, 0, currentRotation);
+        }
+    }
+
     private void ClampPosition(){
         transform.position = new Vector2(
             Mathf.Clamp(transform.position.x,-1 * xBounds, xBounds  ),
-            Mathf.Clamp(transform.position.y, -1 * yBounds, yBounds)
+            transform.position.y
         );
     }
 
