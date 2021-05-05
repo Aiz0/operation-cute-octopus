@@ -19,13 +19,8 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
-    {
-        EnemyFollow enemy = hitInfo.GetComponent<EnemyFollow>();
-        if (enemy != null)
-        {
-            enemy.IsShot();
-        }
 
+    { 
         Destroy(gameObject);
     }
    

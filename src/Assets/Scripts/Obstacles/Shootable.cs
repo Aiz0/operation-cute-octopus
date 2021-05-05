@@ -12,6 +12,8 @@ public class Shootable : MonoBehaviour
         if (other.CompareTag("Bullet")){
             if (effect != null ){
                 Instantiate(effect, transform.position, Quaternion.identity);
+
+                
             }
             Destroy(gameObject);
         }

@@ -13,9 +13,21 @@ public class HurtBox : MonoBehaviour
         if (other.CompareTag("Player")){
             if(effect != null){
                 Instantiate(effect, transform.position, Quaternion.identity);
+
+                ScreenShakeController.instance.TriggerShake(0.5f);
             }
             GameController.instance.DecrementHealth(damage);
             Destroy(gameObject);
+        }
+
+        if (other.CompareTag("Bullet"))
+        {
+            if(effect != null)
+            {
+                Instantiate(effect, transform.position, Quaternion.identity);
+
+                ScreenShakeController.instance.TriggerShake(0.1f);
+            }
         }
     }
 }
