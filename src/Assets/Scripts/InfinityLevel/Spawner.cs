@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour
     private float spawnTime;
     [SerializeField]
     private float distance = 5.0f;
+    [SerializeField]
+    private float maxSpeed;
 
     void Start() {
         StartCoroutine(SpawnLoop());
@@ -23,13 +25,13 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
                 GameObject pattern = GetRandomPattern();
                 SpawnObstacles(pattern);
-            GameController.instance.increaseSpeed();
+            if(maxSpeed > GameController.instance.speed) GameController.instance.increaseSpeed();
         }
     }
 
-    private GameObject GetRandomPattern() {
+    private GameObject GetRandomPattern()
+    { 
         int rand = Random.Range(0, patterns.Length);
-        
         while(rand == lastPattern) rand = Random.Range(0, patterns.Length);
         lastPattern = rand;
         return patterns[rand];

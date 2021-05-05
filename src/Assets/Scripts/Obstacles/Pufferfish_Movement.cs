@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pufferfish_Movement : MonoBehaviour 
 {
-    private float speed;
     private Vector2 direction;
     [SerializeField]
     private float speedMultiplier = 1.5f;
@@ -14,20 +13,21 @@ public class Pufferfish_Movement : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private Rigidbody2D rb;
 
     private GameController gameController;
 
     private void Start()
     {
-        animator.SetBool("Puff", false);
         gameController = GameController.instance;
-        direction = gameController.GetDirection();
-        speed = gameController.GetSpeed();
+        animator.SetBool("Puff", false);
+        animator.speed = gameController.GetSpeed();
     }
 
     private void Update()
     {
-        transform.Translate(direction * speed * speedMultiplier * Time.deltaTime);
+        rb.velocity = gameController.GetDirection() * gameController.GetSpeed() * speedMultiplier;
         if(transform.position.y <= puffAt) animator.SetBool("Puff", true);
     }
 }

@@ -12,10 +12,10 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         rb.velocity = transform.right * speed;
+        Destroy(gameObject, 2);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
@@ -24,9 +24,8 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.IsShot();
-        }
-
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }       
     }
    
 }
