@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    [SerializeField]
+    private Animator transition;
 
-    public Animator transition;
-
-    public float transitionTime = 1f;
+    [SerializeField]
+    private float transitionTime = 1f;
 
     public void load(string sceneName){
         StartCoroutine(LoadLevel(sceneName));
