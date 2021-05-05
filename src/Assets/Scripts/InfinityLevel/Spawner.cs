@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     private float spawnTime;
     [SerializeField]
-    private float distance = 5.0f;
+    private float distancBetweenPatterns = 5.0f;
     [SerializeField]
     private float maxSpeed;
 
@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnLoop() {
         while(GameController.instance.IsRunning()) {
-            spawnTime = distance / GameController.instance.speed;
+            spawnTime = distancBetweenPatterns / GameController.instance.speed;
             yield return new WaitForSeconds(spawnTime);
                 GameObject pattern = GetRandomPattern();
                 SpawnObstacles(pattern);
