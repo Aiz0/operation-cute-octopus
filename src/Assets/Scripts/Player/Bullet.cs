@@ -25,7 +25,10 @@ public class Bullet : MonoBehaviour
         {
             enemy.IsShot();
             Destroy(gameObject);
-        }       
+        }else if (hitInfo.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
    
 }

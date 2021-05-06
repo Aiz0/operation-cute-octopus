@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pufferfish_Movement : MonoBehaviour 
 {
-    private Vector2 direction;
     [SerializeField]
     private float speedMultiplier = 1.5f;
 

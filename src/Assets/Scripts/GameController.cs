@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+    [SerializeField]
+    private Spawner spawner;
 
     [SerializeField]
     private GameObject player;
@@ -23,7 +25,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float reloadTime;
 
-    [SerializeField]
     private float scoreInterval;
 
     [SerializeField]
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         instance = this;
+        scoreInterval = spawner.distanceBetweenPatterns / speed;
         StartGame();
         scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
@@ -69,6 +71,7 @@ public class GameController : MonoBehaviour
         while(IsRunning()) {
             yield return new WaitForSeconds(scoreInterval);
             IncrementScore(1);
+            scoreInterval = spawner.distanceBetweenPatterns / speed;
         }
     }
 
