@@ -19,15 +19,14 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Shootable shootable = hitInfo.GetComponent<Shootable>();
-        if (shootable != null) {
-            Destroy(gameObject);
-<<<<<<< HEAD
-        }else if (hitInfo.CompareTag("Obstacle"))
+        if (shootable != null)
+        {
+                Destroy(gameObject);
+        }
+        else if (hitInfo.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
-=======
->>>>>>> fe431a852313d32ba5cb010a7c77af8e99643513
+
         }
     }
-
 }
