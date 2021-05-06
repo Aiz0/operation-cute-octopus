@@ -15,10 +15,14 @@ public class HurtBox : MonoBehaviour
         if (other.CompareTag("Player")) {           
             if (effect != null){
                 Instantiate(effect, transform.position, Quaternion.identity);
+                
             }            
-            animator.SetBool("Dead", true);
+                animator.SetBool("Dead", true);
+                ScreenShakeController.instance.TriggerShake(0.5f);
+            }
             GameController.instance.DecrementHealth(damage);
             Destroy(gameObject, 1);
         }
+
     }
 }

@@ -43,5 +43,4 @@ public class EnemyFollow : MonoBehaviour
         move = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
-
 }

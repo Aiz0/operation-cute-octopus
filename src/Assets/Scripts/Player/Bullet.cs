@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
-    public int damage = 1;
-    public Rigidbody2D rb;
+    [SerializeField]
+    private float speed = 20f;
+    [SerializeField]
+    private int damage = 1;
+    [SerializeField]
+    private Rigidbody2D rb;
     PlayerController octopus = new PlayerController();
 
-    public string tagToIgnore = "Player";
-    // Start is called before the first frame update
+    [SerializeField]
+    private GameObject effect;
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -19,14 +22,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,2);
     }
 
-    private void OnTriggerEnter2D(Collider2D hitInfo)
-    {
-        EnemyFollow enemy = hitInfo.GetComponent<EnemyFollow>();
-        if (enemy != null)
-        {
-            enemy.IsShot();
+    private void OnTriggerEnter2D(Collider2D hitInfo) {
+        Shootable shootable = hitInfo.GetComponent<Shootable>();
+        if (shootable != null) {
+            if (effect != null) {
+                Instantiate(effect, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
-        }       
+        }
     }
-   
 }
