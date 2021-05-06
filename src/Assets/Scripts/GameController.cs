@@ -16,10 +16,7 @@ public class GameController : MonoBehaviour
     private Vector2 direction = Vector2.down;
     [SerializeField]
     public float speed = 1;
-    
-    /*[SerializeField]
-    private int maxInk = 1;
-    */
+
     [SerializeField]
     private float reloadTime;
 
@@ -43,6 +40,8 @@ public class GameController : MonoBehaviour
     private int score;
     private int stars;
 
+    public GameObject parent;
+
 
     private int health;
     // ink that can be fired
@@ -50,6 +49,7 @@ public class GameController : MonoBehaviour
 
     private bool isReloading = false;
     private bool gameRunning = false;
+
 
     void Awake(){
         instance = this;
@@ -63,10 +63,10 @@ public class GameController : MonoBehaviour
 
         UpdateHealth();
         UpdateInk();
+        ChangeSkins();
 
         SetScore(0);
         SetStars(0);
-        //SetInk(maxInk);
 
         StartCoroutine(ScoreLoop());
     }
@@ -211,10 +211,44 @@ public class GameController : MonoBehaviour
         scores.UpdateTotalStars();
     }
 
+
+
+    //
+    // SKINS
+    //
+    public void ChangeSkins()
+    {
+        if (PlayerPrefs.GetInt("Skins") == 0)
+        {
+            RemoveSkinChildren();
+
+            parent.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Skins") == 1)
+        {
+            RemoveSkinChildren();
+
+            parent.transform.GetChild(1).gameObject.SetActive(true);
+        }
+    }
+
+    public void RemoveSkinChildren()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            parent.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    //
+    //
+    //
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
     }
+
 
     public void Restart() {
         Debug.Log("Restarting Game!");
