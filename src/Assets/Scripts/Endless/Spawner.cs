@@ -25,8 +25,10 @@ public class Spawner : MonoBehaviour
         while(gameController.IsRunning()) {
             float spawnInterval = distanceBetweenPatterns / gameController.speed;
             yield return new WaitForSeconds(spawnInterval);
-                GameObject pattern = GetRandomPattern();
-                SpawnObstacles(pattern);
+
+            GameObject pattern = GetRandomPattern();
+            SpawnObstacles(pattern);
+
             if(maxSpeed > gameController.speed) gameController.increaseSpeed();
         }
     }
