@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
-{ 
+{
 
     [SerializeField]
     private GameObject[] patterns;
     private int lastPattern;
 
-    private float spawnTime;
     public float distanceBetweenPatterns = 5.0f;
     [SerializeField]
     private float maxSpeed;
@@ -20,8 +19,8 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator SpawnLoop() {
         while(GameController.instance.IsRunning()) {
-            spawnTime = distanceBetweenPatterns / GameController.instance.speed;
-            yield return new WaitForSeconds(spawnTime);
+            float spawnInterval = distanceBetweenPatterns / GameController.instance.speed;
+            yield return new WaitForSeconds(spawnInterval);
                 GameObject pattern = GetRandomPattern();
                 SpawnObstacles(pattern);
             if(maxSpeed > GameController.instance.speed) GameController.instance.increaseSpeed();
@@ -29,7 +28,7 @@ public class Spawner : MonoBehaviour
     }
 
     private GameObject GetRandomPattern()
-    {  
+    {
         int rand = Random.Range(0, patterns.Length);
         while(rand == lastPattern) rand = Random.Range(0, patterns.Length);
         lastPattern = rand;
