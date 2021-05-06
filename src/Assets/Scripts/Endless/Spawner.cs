@@ -35,8 +35,10 @@ public class Spawner : MonoBehaviour
 
     private GameObject GetRandomPattern()
     {
-        int rand = Random.Range(0, patterns.Length);
-        while(rand == lastPattern) rand = Random.Range(0, patterns.Length);
+        int rand;
+        do {
+            rand = Random.Range(0, patterns.Length);
+        } while(rand == lastPattern);
         lastPattern = rand;
         return patterns[rand];
     }
