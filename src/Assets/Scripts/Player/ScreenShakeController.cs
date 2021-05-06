@@ -52,8 +52,9 @@ public class ScreenShakeController : MonoBehaviour
 
     public void TriggerShake(float shakeTime)
     {
-      
+
         shakeDuration = shakeTime;
+        Handheld.Vibrate();
 
     }
 }
