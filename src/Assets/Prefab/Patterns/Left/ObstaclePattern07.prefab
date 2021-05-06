@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  enemy: {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  star: {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  probabilityToSpawnStar: 5
-  probabilityToSpawnEnemy: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  riskToSpawnOther: 10
 --- !u!1 &4846389755381800020
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4981481484146050244}
   - component: {fileID: 41736470766245411}
   m_Layer: 0
-  m_Name: SpawnPoint02_1
+  m_Name: SpawnPoint03
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -91,11 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  enemy: {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  star: {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  probabilityToSpawnStar: 5
-  probabilityToSpawnEnemy: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  riskToSpawnOther: 10
 --- !u!1 &7980889669598136016
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  enemy: {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  star: {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  probabilityToSpawnStar: 5
-  probabilityToSpawnEnemy: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  riskToSpawnOther: 10

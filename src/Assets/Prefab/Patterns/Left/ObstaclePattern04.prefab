@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  enemy: {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  star: {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  probabilityToSpawnStar: 5
-  probabilityToSpawnEnemy: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  riskToSpawnOther: 10
 --- !u!1 &5158987029746045836
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,11 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  enemy: {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  star: {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  probabilityToSpawnStar: 5
-  probabilityToSpawnEnemy: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  riskToSpawnOther: 10
 --- !u!1 &6844592044439266876
 GameObject:
   m_ObjectHideFlags: 0
