@@ -13,7 +13,7 @@ public class Shootable : MonoBehaviour
             if (effect != null ){
                 Instantiate(effect, transform.position, Quaternion.identity);
 
-                
+                ScreenShakeController.instance.TriggerShake(0.1f);
             }
             Destroy(gameObject);
         }

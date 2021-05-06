@@ -8,11 +8,13 @@ public class Bullet : MonoBehaviour
     public int damage = 1;
     public Rigidbody2D rb;
 
+    [SerializeField]
+    private GameObject effect;
+
     public string tagToIgnore = "Player";
     // Start is called before the first frame update
     void Start()
     {
-
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         rb.velocity = transform.right * speed;
@@ -21,7 +23,13 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D hitInfo)
 
     { 
+        if (effect != null)
+        {
+
+            Instantiate(effect, transform.position, Quaternion.identity);
+
+        }
+
         Destroy(gameObject);
     }
-   
 }
