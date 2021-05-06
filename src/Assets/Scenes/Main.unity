@@ -1268,7 +1268,7 @@ MonoBehaviour:
   - {fileID: 8562764659509991137, guid: 4dd813d7fdedb456d9dd279ba1217984, type: 3}
   - {fileID: 8734725379586125639, guid: 09d375dc4f19641d5914eff77624e3dc, type: 3}
   - {fileID: 8789669558573053030, guid: a705247bfe65c4ef9a3585c83f64fc84, type: 3}
-  distancBetweenPatterns: 5
+  distanceBetweenPatterns: 5
   maxSpeed: 15
 --- !u!4 &624523394
 Transform:
@@ -1527,6 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2681109d96f4ff2b9b92e666cf0e6f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 624523393}
   player: {fileID: 243286401}
   gameOverPanel: {fileID: 375852847}
   direction: {x: 0, y: -1}
@@ -1534,7 +1535,6 @@ MonoBehaviour:
   increaseSpeedBy: 0.05
   maxInk: 5
   reloadTime: 5
-  scoreInterval: 2
   scoreText: {fileID: 1832147447}
   starText: {fileID: 1175234384}
   inkText: {fileID: 334854165}

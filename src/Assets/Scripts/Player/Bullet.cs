@@ -23,10 +23,5 @@ public class Bullet : MonoBehaviour
         {
                 Destroy(gameObject);
         }
-        else if (hitInfo.CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
-
-        }
     }
 }
