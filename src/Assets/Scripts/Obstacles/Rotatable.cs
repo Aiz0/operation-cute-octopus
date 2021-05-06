@@ -9,15 +9,15 @@ public class Rotatable : MonoBehaviour
     private int maxRotateSpeed;
     [SerializeField]
     private int minRotateSpeed;
-    private int rand;
+    private int rotationSpeed;
 
-    void Start()
+    private void Awake()
     {
-        rand = Random.Range(minRotateSpeed, maxRotateSpeed) * (Random.Range(0,2)*2-1);
+        rotationSpeed = Random.Range(minRotateSpeed, maxRotateSpeed) * (Random.Range(0,2)*2-1);
     }
 
-    void Update()
+    private void Update()
     {
-        transform.Rotate(new Vector3(0, 0, rand * Time.deltaTime));
+        transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
     }
 }
