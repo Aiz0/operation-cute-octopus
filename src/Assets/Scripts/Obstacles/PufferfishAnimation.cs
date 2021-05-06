@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PufferfishAnimation : MonoBehaviour
+public class Pufferfish_Movement : MonoBehaviour
 {
     [SerializeField]
     private float puffAt = 3;
