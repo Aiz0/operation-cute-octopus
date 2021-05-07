@@ -131,7 +131,7 @@ public class GameController : MonoBehaviour
     public bool DecrementInk(int value) {
         if (ink - value >= 0){
             SetInk(ink - value);
-            if (ink == 0) {
+            if (ink < maxInk) {
                 ReloadInk();
             }
             return true;
