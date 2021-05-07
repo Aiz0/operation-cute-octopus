@@ -408,7 +408,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 300149162}
         m_TargetAssemblyTypeName: ToShop, Assembly-CSharp
-        m_MethodName: toShop
+        m_MethodName: ButtonToShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

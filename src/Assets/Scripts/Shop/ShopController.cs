@@ -63,7 +63,7 @@ public class ShopController : MonoBehaviour
                 {
                     skinText[i].text = "BUY: " + skinCost + " STARS";
                 }
-                else
+                else if(PlayerPrefs.GetInt("TotalStars") < skinCost)
                 {
                     skinText[i].text = "INSUFFICIENT";
                 }
@@ -102,7 +102,12 @@ public class ShopController : MonoBehaviour
     {
         for(int i = 0; i < statsButton.Length; i++)
         {
-            if (PlayerPrefs.GetInt("TotalStars") >= statCost)
+            if(PlayerPrefs.GetInt("Health") >= maxHealth || PlayerPrefs.GetInt("Ink") >= maxInk)
+            {
+                statsButton[i].gameObject.SetActive(false);
+            }
+
+            else if (PlayerPrefs.GetInt("TotalStars") >= statCost)
             {
                 statsText[i].text = "BUY: " + statCost + " stars";
             }
@@ -134,6 +139,7 @@ public class ShopController : MonoBehaviour
                 PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - statCost);
                 playerStars.text = PlayerPrefs.GetInt("TotalStars").ToString();
                 UpdateHeartText();
+                UpdateStatsButton();
             }
         }
     }
@@ -142,12 +148,13 @@ public class ShopController : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("Ink") < maxInk)
         {
-            if (PlayerPrefs.GetInt("TotalStars") >= 1)
+            if (PlayerPrefs.GetInt("TotalStars") >= statCost)
             {
                 PlayerPrefs.SetInt("Ink", PlayerPrefs.GetInt("Ink") + 1);
                 PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - statCost);
                 playerStars.text = PlayerPrefs.GetInt("TotalStars").ToString();
                 UpdateInkText();
+                UpdateStatsButton();
             }
         }
     }

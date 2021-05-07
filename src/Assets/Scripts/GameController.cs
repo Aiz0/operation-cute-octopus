@@ -205,13 +205,10 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Score", finalScore);
         PlayerPrefs.SetInt("Stars",finalStars);
         PlayerPrefs.Save();
-
         
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
     }
-
-
 
     //
     // SKINS
@@ -248,7 +245,6 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-
 
     public void Restart() {
         Debug.Log("Restarting Game!");

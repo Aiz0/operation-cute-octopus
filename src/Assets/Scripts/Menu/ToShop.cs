@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ToShop : MonoBehaviour
 {
-    public void toShop()
+    public void ButtonToShop()
     {
         SceneManager.LoadScene("Shop");
     }
