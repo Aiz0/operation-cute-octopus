@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243286401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.8383455, z: 0}
+  m_LocalPosition: {x: 0, y: -3.8325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1106,7 +1106,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3383455
+  orthographic size: 5.3325
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1194,7 +1194,6 @@ MonoBehaviour:
   - {fileID: 8562764659509991137, guid: 4dd813d7fdedb456d9dd279ba1217984, type: 3}
   - {fileID: 8734725379586125639, guid: 09d375dc4f19641d5914eff77624e3dc, type: 3}
   - {fileID: 8789669558573053030, guid: a705247bfe65c4ef9a3585c83f64fc84, type: 3}
-  distanceBetweenPatterns: 5
   maxSpeed: 15
 --- !u!4 &624523394
 Transform:
@@ -1204,7 +1203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.3383455, z: 0}
+  m_LocalPosition: {x: 0, y: 7.3325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1468,7 +1467,9 @@ MonoBehaviour:
   gameOverPanel: {fileID: 375852847}
   direction: {x: 0, y: -1}
   speed: 3
-  increaseSpeedBy: 0.05
+  maxSpeed: 12
+  spawnDistanceInterval: 5
+  speedMultiplier: 1.05
   maxInk: 5
   reloadTime: 5
   scoreText: {fileID: 1832147447}

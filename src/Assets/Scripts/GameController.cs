@@ -17,9 +17,13 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [SerializeField]
-    public float speed = 1;
+    private float speed = 1;
     [SerializeField]
-    private float increaseSpeedBy;
+    private float maxSpeed = 1;
+    [SerializeField]
+    private float spawnDistanceInterval = 1;
+    [SerializeField]
+    private float speedMultiplier = 1;
     [SerializeField]
     private int maxInk = 1;
     [SerializeField]
@@ -50,7 +54,6 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         instance = this;
-        scoreInterval = spawner.distanceBetweenPatterns / speed;
         StartGame();
         scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
@@ -64,14 +67,13 @@ public class GameController : MonoBehaviour
         SetInk(maxInk);
 
         StartCoroutine(ScoreLoop());
+        StartCoroutine(IncreaseSpeedLoop());
     }
 
     private IEnumerator ScoreLoop() {
-        // Could alternatly use time.deltaTime instead
         while(IsRunning()) {
-            yield return new WaitForSeconds(scoreInterval);
+            yield return new WaitForSeconds(0.2f * GetSpawnInterval());
             IncrementScore(1);
-            scoreInterval = spawner.distanceBetweenPatterns / speed;
         }
     }
 
@@ -160,6 +162,17 @@ public class GameController : MonoBehaviour
         return gameRunning;
     }
 
+    public float GetSpawnInterval(){
+        return spawnDistanceInterval / speed;
+    }
+
+    private IEnumerator IncreaseSpeedLoop() {
+        while(IsRunning() && speed < maxSpeed) {
+            yield return new WaitForSeconds(5);
+            speed *= speedMultiplier;
+        }
+    }
+
     private void EndGame() {
         Debug.Log("Game Over!");
         gameRunning = false;
@@ -176,11 +189,6 @@ public class GameController : MonoBehaviour
 
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
-    }
-
-    public void increaseSpeed()
-    {
-        speed += increaseSpeedBy;
     }
 
     public void Restart() {
