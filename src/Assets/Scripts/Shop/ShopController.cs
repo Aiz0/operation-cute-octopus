@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
@@ -61,11 +61,11 @@ public class ShopController : MonoBehaviour
                 }
                 else if (PlayerPrefs.GetInt("TotalStars") >= skinCost)
                 {
-                    skinText[i].text = "BUY: " + skinCost + " STARS";
+                    skinText[i].text = "BUY";
                 }
                 else if(PlayerPrefs.GetInt("TotalStars") < skinCost)
                 {
-                    skinText[i].text = "INSUFFICIENT";
+                    skinText[i].text = "X";
                 }
             }
         }
@@ -98,22 +98,29 @@ public class ShopController : MonoBehaviour
     // BUY STATS
     //
 
+
+    //Rengör
     public void UpdateStatsButton()
     {
         for(int i = 0; i < statsButton.Length; i++)
         {
-            if(PlayerPrefs.GetInt("Health") >= maxHealth || PlayerPrefs.GetInt("Ink") >= maxInk)
+            if(PlayerPrefs.GetInt("Health") >= maxHealth)
             {
-                statsButton[i].gameObject.SetActive(false);
+                statsButton[0].gameObject.SetActive(false);
+            }
+
+            if (PlayerPrefs.GetInt("Ink") >= maxInk)
+            {
+                statsButton[1].gameObject.SetActive(false);
             }
 
             else if (PlayerPrefs.GetInt("TotalStars") >= statCost)
             {
-                statsText[i].text = "BUY: " + statCost + " stars";
+                statsText[i].text = "BUY";
             }
-            else
+            else if(PlayerPrefs.GetInt("TotalStars") < statCost)
             {
-                statsText[i].text = "INSUFFICIENT";
+                statsText[i].text = "X";
             }
         }
     }
@@ -133,7 +140,7 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Health") < maxHealth)
         {
-            if (PlayerPrefs.GetInt("TotalStars") >= 1)
+            if (PlayerPrefs.GetInt("TotalStars") >= statCost)
             {
                 PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") + 1);
                 PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - statCost);
