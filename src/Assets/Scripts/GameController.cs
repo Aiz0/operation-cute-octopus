@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
     private Text starText;
     [SerializeField]
     private Text inkText;
+    [SerializeField]
+    private Image reloadImage;
 
     public int finalScore;
     public int finalStars;
@@ -53,6 +55,25 @@ public class GameController : MonoBehaviour
         scoreInterval = spawner.distanceBetweenPatterns / speed;
         StartGame();
         scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
+    }
+
+    private void Start()
+    {
+        reloadImage.fillAmount = 0f;
+    }
+
+    private void Update()
+    {
+        if(isReloading)
+        {
+            reloadImage.fillAmount += 1 / reloadTime * Time.deltaTime;
+
+            if (reloadImage.fillAmount >= 1)
+            {
+                reloadImage.fillAmount = 0f;
+                isReloading = false;
+            }
+        }
     }
 
     private void StartGame() {
