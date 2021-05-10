@@ -75,7 +75,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
     public Vector2 GetDirection() {
         return direction;
     }
@@ -176,6 +175,16 @@ public class GameController : MonoBehaviour
         
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
+        StartCoroutine(slowDown());
+    }
+
+    private IEnumerator slowDown()
+    {
+        while(speed > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+            speed -= 0.1f;
+        }
     }
 
     public void MainMenu()
