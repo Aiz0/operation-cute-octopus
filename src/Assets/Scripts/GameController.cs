@@ -192,6 +192,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             speed -= 0.1f;
         }
+        speed = 0;
     }
 
     public void increaseSpeed()
