@@ -172,7 +172,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("Stars",finalStars);
         PlayerPrefs.Save();
 
-        
+
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
         StartCoroutine(slowDown());
@@ -185,11 +185,6 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             speed -= 0.1f;
         }
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("Menu");
     }
 
     public void increaseSpeed()
