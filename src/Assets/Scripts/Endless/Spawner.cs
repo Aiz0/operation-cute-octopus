@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
 
     //TODO Move to gameController
     public float distanceBetweenPatterns = 5.0f;
-    [SerializeField]
     private float maxSpeed;
 
     private GameController gameController;
@@ -28,8 +27,8 @@ public class Spawner : MonoBehaviour
 
             GameObject pattern = GetRandomPattern();
             SpawnObstacles(pattern);
-
-            if(maxSpeed > gameController.speed) gameController.increaseSpeed();
+            
+            gameController.increaseSpeed();
         }
     }
 

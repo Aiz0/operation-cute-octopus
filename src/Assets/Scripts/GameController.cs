@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField]
     private Spawner spawner;
+    public GameObject baseObstacle;
+    public GameObject[] otherObstacles;
+    public float riskToSpawnOther = 10;
+    public GameObject[] rockObstacles;
+    public float riskToSpawnRock = 10;
+    public bool allowOtherSpawns = true;
 
     [SerializeField]
     private GameObject player;
@@ -18,6 +24,7 @@ public class GameController : MonoBehaviour
     private Vector2 direction = Vector2.down;
     [SerializeField]
     public float speed = 1;
+    public float maxSpeed = 15;
     [SerializeField]
     private float increaseSpeedBy;
     [SerializeField]
@@ -189,7 +196,7 @@ public class GameController : MonoBehaviour
 
     public void increaseSpeed()
     {
-        speed += increaseSpeedBy;
+        if (maxSpeed > speed) speed += increaseSpeedBy;
     }
 
     public void Restart() {

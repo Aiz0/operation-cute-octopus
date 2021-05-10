@@ -43,11 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  otherObstacles:
-  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  riskToSpawnOther: 10
+  allowSpawnRock: 0
+  allowSpawnOther: 1
 --- !u!1 &1292212854258470607
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +58,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint04
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -91,11 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  otherObstacles:
-  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  riskToSpawnOther: 10
+  allowSpawnRock: 1
+  allowSpawnOther: 1
 --- !u!1 &4363831957893831608
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,11 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  otherObstacles:
-  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  riskToSpawnOther: 10
+  allowSpawnRock: 0
+  allowSpawnOther: 1
 --- !u!1 &8734725379586125639
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +182,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint01
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -221,8 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b888fc7240014630a0f97d45127b3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
-  otherObstacles:
-  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
-  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
-  riskToSpawnOther: 10
+  allowSpawnRock: 1
+  allowSpawnOther: 1
