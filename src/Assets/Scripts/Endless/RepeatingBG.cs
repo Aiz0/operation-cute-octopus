@@ -5,20 +5,17 @@ using UnityEngine;
 public class RepeatingBG : MonoBehaviour
 {
     public GameController gC;
-    private float speed;
     [SerializeField]
     private float endY;
     [SerializeField]
     private float startY;
+    [SerializeField]
+    private float multiplyer = 1;
 
-    private void Start()
-    {
-        speed = gC.GetSpeed();
-    }
 
     private void Update()
     {
-        transform.Translate(Vector2.down * gC.GetSpeed() * Time.deltaTime);
+        transform.Translate(Vector2.down * gC.GetSpeed() * multiplyer * Time.deltaTime);
 
         if(transform.position.y <= endY)
         {
