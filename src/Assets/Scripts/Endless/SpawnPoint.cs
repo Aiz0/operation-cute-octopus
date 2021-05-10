@@ -15,12 +15,12 @@ public class SpawnPoint : MonoBehaviour
         gC = GameController.instance;
         int rand = Random.Range(0, 100);
 
-        if (gC.allowOtherSpawns && allowSpawnRock && (rand <= gC.riskToSpawnRock) && gC.rockObstacles.Length > 0) 
+        if (gC.GetAllowOtherSpawns() && allowSpawnRock && (rand <= gC.GetRiskToSpawnRock()) && gC.GetRockObstacles().Length > 0) 
             spawnRock();
-        else if (gC.allowOtherSpawns &&  allowSpawnOther && (rand <= gC.riskToSpawnOther) && gC.otherObstacles.Length > 0) 
+        else if (gC.GetAllowOtherSpawns() &&  allowSpawnOther && (rand <= gC.GetRiskToSpawnOther()) && gC.GetOtherObstacles().Length > 0) 
             spawnOther();
         else 
-            Instantiate(gC.baseObstacle, transform.position, Quaternion.identity);
+            Instantiate(gC.GetBaseObstacle(), transform.position, Quaternion.identity);
         
     }
 
@@ -31,14 +31,14 @@ public class SpawnPoint : MonoBehaviour
     private void spawnRock()
     {
         Quaternion rotation = transform.rotation;
-        int random = Random.Range(0, gC.rockObstacles.Length);
+        int random = Random.Range(0, gC.GetRockObstacles().Length);
         if (transform.position.x > 0) rotation.y = -180;
-        Instantiate(gC.rockObstacles[random], transform.position, rotation);
+        Instantiate(gC.GetRockObstacles()[random], transform.position, rotation);
     }
 
     private void spawnOther()
     {
-            int random = Random.Range(0, gC.otherObstacles.Length);
-            Instantiate(gC.otherObstacles[random], transform.position, Quaternion.identity);
+            int random = Random.Range(0, gC.GetOtherObstacles().Length);
+            Instantiate(gC.GetOtherObstacles()[random], transform.position, Quaternion.identity);
     }
 }
