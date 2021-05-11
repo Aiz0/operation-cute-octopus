@@ -8,10 +8,10 @@ public class ShopController : MonoBehaviour
 {
     public static int skin;
 
-    public Text playerStars;
     public Text currentHearts;
     public Text currentInk;
 
+    public Text[] totalStarsText;
     public Button[] skinButton;
     public Text[] skinText;
 
@@ -30,7 +30,7 @@ public class ShopController : MonoBehaviour
 
     public void Start()
     {
-        playerStars.text = PlayerPrefs.GetInt("TotalStars").ToString();
+        UpdateTotalStars();
 
         UpdateHeartText();
         UpdateInkText();
@@ -40,6 +40,18 @@ public class ShopController : MonoBehaviour
         PlayerPrefs.SetString("SkinList", PlayerPrefs.GetString("SkinList") + "0");
     }
 
+
+    //
+    // UPDATE TOTAL STARS
+    //
+
+    public void UpdateTotalStars()
+    {
+     for(int i = 0; i < totalStarsText.Length; i++)
+        {
+            totalStarsText[i].text = PlayerPrefs.GetInt("TotalStars").ToString();
+        }
+    }
     //
     // BUY SKINS
     //
@@ -91,6 +103,7 @@ public class ShopController : MonoBehaviour
             PlayerPrefs.SetInt("Skins", 1);
             PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - skinCost);
             CheckCurrentSkin();
+            UpdateTotalStars();
         }
     }
 
@@ -144,7 +157,7 @@ public class ShopController : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") + 1);
                 PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - statCost);
-                playerStars.text = PlayerPrefs.GetInt("TotalStars").ToString();
+                UpdateTotalStars();
                 UpdateHeartText();
                 UpdateStatsButton();
             }
@@ -159,7 +172,7 @@ public class ShopController : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Ink", PlayerPrefs.GetInt("Ink") + 1);
                 PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - statCost);
-                playerStars.text = PlayerPrefs.GetInt("TotalStars").ToString();
+                UpdateTotalStars();
                 UpdateInkText();
                 UpdateStatsButton();
             }
