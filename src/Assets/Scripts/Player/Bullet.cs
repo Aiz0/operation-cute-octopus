@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
-        Destroy(gameObject,2);
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo) {
