@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 243286423}
   - component: {fileID: 243286404}
   - component: {fileID: 243286424}
+  - component: {fileID: 243286425}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1861,6 +1862,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bd401de2bb834c6a611854aecb5d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &243286425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243286401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa54720f9b4a4e01a048e13abf30a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &275277322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2816,7 +2829,6 @@ MonoBehaviour:
   - {fileID: 825405336516130185, guid: a78ce32676d1d644181830ddb782d8c1, type: 3}
   <RiskToSpawnRock>k__BackingField: 10
   <AllowOtherSpawns>k__BackingField: 1
-  player: {fileID: 243286401}
   direction: {x: 0, y: -1}
   <Speed>k__BackingField: 3
   <MaxSpeed>k__BackingField: 15

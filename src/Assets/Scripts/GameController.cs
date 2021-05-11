@@ -30,8 +30,6 @@ public class GameController : MonoBehaviour
     { get; private set;}
 
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
     private Vector2 direction = Vector2.down;
     [field: SerializeField]
     public float Speed
@@ -180,9 +178,6 @@ public class GameController : MonoBehaviour
 
         OnGameOver();
         GameRunning = false;
-        Animator animator = player.GetComponent<Animator>();
-        animator.SetBool("Dead", true);
-        Destroy(player,1);
 
         Score.Instance.HighScore = score;
 
