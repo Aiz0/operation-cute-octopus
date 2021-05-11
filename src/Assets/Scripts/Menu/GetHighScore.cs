@@ -14,7 +14,7 @@ public class GetHighScore : MonoBehaviour
 
     private void Start()
     {
-        text.text = Score.Instance.HighScore.ToString();
+        text.text = PlayerStats.Instance.HighScore.ToString();
     }
 
 }

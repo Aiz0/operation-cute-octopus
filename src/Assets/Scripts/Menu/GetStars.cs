@@ -14,7 +14,7 @@ public class GetStars : MonoBehaviour
 
     private void Start()
     {
-        text.text = Score.Instance.Stars.ToString();
+        text.text = PlayerStats.Instance.Stars.ToString();
     }
 
 }

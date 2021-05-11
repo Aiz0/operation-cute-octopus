@@ -49,11 +49,62 @@ public class GameController : MonoBehaviour
     [field: SerializeField]
     public float ReloadTime
     { get; private set; }
+    public bool IsReloading
+    { get; private set; }
+    public bool GameRunning
+    { get; private set; }
 
     [SerializeField]
     private float gameOverSpeed;
 
+    private int _score;
+    private int _stars;
+    private int _ink;
+    private int _health = 1;
 
+    public int Score
+    {
+        get => _score;
+
+        set {
+            _score = value;
+            if (OnScoreUpdate != null ) OnScoreUpdate(_score);
+        }
+    }
+
+    public int Stars
+    {
+        get => _stars;
+
+        set {
+            _stars = value;
+            if (OnStarUpdate != null ) OnStarUpdate(_stars);
+        }
+    }
+
+    public int Ink
+    {
+        get => _ink;
+
+        set {
+            _ink = value;
+            if (OnInkUpdate != null) OnInkUpdate(_ink);
+        }
+    }
+
+    public int Health
+    {
+        get => _health;
+
+        set {
+            _health = value;
+            if(_health <= 0) {
+                _health = 0;
+                EndGame();
+            }
+            if (OnHealthUpdate != null) OnHealthUpdate(_health);
+        }
+    }
 
     public delegate void GameOver();
     public event GameOver OnGameOver;
@@ -70,16 +121,6 @@ public class GameController : MonoBehaviour
     public delegate void HealthUpdate(int health);
     public event HealthUpdate OnHealthUpdate;
 
-    private int score;
-    private int stars;
-    private int health = 1;
-    // ink that can be fired
-    private int ink = 1;
-
-    public bool IsReloading
-    { get; private set; }
-    public bool GameRunning
-    { get; private set; }
 
     public Vector2 Direction {
         get => direction;
@@ -89,47 +130,22 @@ public class GameController : MonoBehaviour
         return SpawnDistanceInterval / Speed;
     }
 
-    private void SetScore(int value) {
-        score = value;
-        if (OnScoreUpdate != null )OnScoreUpdate(score);
-    }
-
     public void IncrementScore(int value) {
-        SetScore(score + value);
-    }
-
-    private void SetStars(int value) {
-        stars = value;
-        if (OnStarUpdate != null )OnStarUpdate(stars);
+        Score += value;
     }
 
     public void IncrementStars(int value) {
-        SetStars(stars + value);
-        Score.Instance.Stars = stars;
-    }
-
-    private void SetHealth(int value) {
-        health = value;
-        if(health <= 0) {
-            health = 0;
-            EndGame();
-        }
-        if (OnHealthUpdate != null )OnHealthUpdate(health);
+        Stars += value;
     }
 
     public void DecrementHealth(int value) {
-        SetHealth(health - value);
-    }
-
-    private void SetInk(int value) {
-        ink = value;
-        if (OnInkUpdate != null )OnInkUpdate(ink);
+        Health -= value;
     }
 
     public bool DecrementInk(int value) {
-        if (ink - value >= 0){
-            SetInk(ink - value);
-            if (ink == 0) {
+        if (Ink - value >= 0){
+            Ink -= value;
+            if (Ink > 0) {
                 ReloadInk();
             }
             return true;
@@ -147,10 +163,10 @@ public class GameController : MonoBehaviour
 
     private void StartGame() {
         GameRunning = true;
-        SetScore(0);
-        SetStars(Score.Instance.Stars);
-        SetInk(MaxInk);
-        SetHealth(1);
+        Score = 0;
+        Stars = PlayerStats.Instance.Stars;
+        Ink = MaxInk;
+        Health = 1;
 
         StartCoroutine(ScoreLoop());
         StartCoroutine(IncreaseSpeedLoop());
@@ -173,7 +189,7 @@ public class GameController : MonoBehaviour
     private IEnumerator Reload() {
         IsReloading = true;
         yield return new WaitForSeconds(ReloadTime);
-        SetInk(MaxInk);
+        Ink = MaxInk;
         IsReloading = false;
     }
 
@@ -192,7 +208,8 @@ public class GameController : MonoBehaviour
         OnGameOver();
         GameRunning = false;
 
-        Score.Instance.HighScore = score;
+        PlayerStats.Instance.HighScore = Score;
+        PlayerStats.Instance.Stars = Stars;
 
         StartCoroutine(SlowDown());
     }
