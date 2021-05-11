@@ -8,7 +8,25 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     [SerializeField]
-    private Spawner spawner;
+    private float distanceBetweenPatterns;
+    [SerializeField]
+    public GameObject BaseObstacle
+    { get; private set; }
+    [SerializeField]
+    public GameObject[] OtherObstacles
+    { get; private set; }
+    [SerializeField]
+    public float RiskToSpawnOther
+    { get; private set; }
+    [SerializeField]
+    public GameObject[] RockObstacles
+    { get; private set; }
+    [SerializeField]
+    public float RiskToSpawnRock
+    { get; private set;}
+    [SerializeField]
+    public bool AllowOtherSpawns
+    { get; private set;}
 
     [SerializeField]
     private GameObject player;
@@ -17,19 +35,23 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [SerializeField]
-    private float speed = 1;
+    public float Speed
+    { get; private set; }
     [SerializeField]
-    private float maxSpeed = 1;
+    public float MaxSpeed
+    { get; private set; }
     [SerializeField]
-    private float spawnDistanceInterval = 1;
+    public float SpawnDistanceInterval
+    { get; private set; }
     [SerializeField]
-    private float speedMultiplier = 1;
+    public float SpeedMultiplier
+    { get; private set; }
     [SerializeField]
-    private int maxInk = 1;
+    public int MaxInk
+    { get; private set; }
     [SerializeField]
-    private float reloadTime;
-
-    private float scoreInterval;
+    public float ReloadTime
+    { get; private set; }
 
     [SerializeField]
     private Text scoreText;
@@ -37,9 +59,6 @@ public class GameController : MonoBehaviour
     private Text starText;
     [SerializeField]
     private Text inkText;
-
-    public int finalScore;
-    public int finalStars;
 
     private Score scores;
 
@@ -49,56 +68,22 @@ public class GameController : MonoBehaviour
     // ink that can be fired
     private int ink = 1;
 
-    private bool isReloading = false;
-    private bool gameRunning = false;
+    public bool IsReloading
+    { get; private set; }
+    public bool GameRunning
+    { get; private set; }
 
-    void Awake(){
-        instance = this;
-        StartGame();
-        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
+    public Vector2 Direction {
+        get => direction;
     }
 
-    private void StartGame() {
-        gameRunning = true;
-        gameOverPanel.SetActive(false);
-
-        SetScore(0);
-        SetStars(0);
-        SetInk(maxInk);
-
-        StartCoroutine(ScoreLoop());
-        StartCoroutine(IncreaseSpeedLoop());
-    }
-
-    private IEnumerator ScoreLoop() {
-        while(IsRunning()) {
-            yield return new WaitForSeconds(0.2f * GetSpawnInterval());
-            IncrementScore(1);
-        }
-    }
-
-
-    public Vector2 GetDirection() {
-        return direction;
-    }
-
-    public float GetSpeed() {
-        return speed;
+    public float GetSpawnInterval(){
+        return SpawnDistanceInterval / Speed;
     }
 
     private void SetScore(int value) {
         score = value;
         scoreText.text = score.ToString();
-    }
-
-    public int getScore()
-    {
-        return score;
-    }
-
-    public int getStars()
-    {
-        return stars;
     }
 
     public void IncrementScore(int value) {
@@ -141,54 +126,80 @@ public class GameController : MonoBehaviour
         return false;
     }
 
-    public int GetInk() {
-        return ink;
+    void Awake(){
+        instance = this;
+        StartGame();
+        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
 
+    private void StartGame() {
+        GameRunning = true;
+        gameOverPanel.SetActive(false);
+
+        SetScore(0);
+        SetStars(0);
+        SetInk(MaxInk);
+
+        StartCoroutine(ScoreLoop());
+        StartCoroutine(IncreaseSpeedLoop());
+    }
+
+    private IEnumerator ScoreLoop() {
+        while(GameRunning) {
+            yield return new WaitForSeconds(0.2f * GetSpawnInterval());
+            IncrementScore(1);
+        }
+    }
+
+
     private void ReloadInk() {
-        if (!isReloading) {
+        if (!IsReloading) {
             StartCoroutine(Reload());
         }
     }
 
     private IEnumerator Reload() {
-        isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-        SetInk(maxInk);
-        isReloading = false;
+        IsReloading = true;
+        yield return new WaitForSeconds(ReloadTime);
+        SetInk(MaxInk);
+        IsReloading = false;
     }
 
-    public bool IsRunning() {
-        return gameRunning;
-    }
 
-    public float GetSpawnInterval(){
-        return spawnDistanceInterval / speed;
-    }
 
     private IEnumerator IncreaseSpeedLoop() {
-        while(IsRunning() && speed < maxSpeed) {
+        while(GameRunning && Speed < MaxSpeed) {
             yield return new WaitForSeconds(5);
-            speed *= speedMultiplier;
+            Speed *= SpeedMultiplier;
         }
     }
 
     private void EndGame() {
         Debug.Log("Game Over!");
-        gameRunning = false;
+        GameRunning = false;
         gameOverPanel.SetActive(true);
-        Destroy(player);
-        finalScore = getScore();
-        finalStars = getStars();
-        print(finalScore);
+        Animator animator = player.GetComponent<Animator>();
+        animator.SetBool("Dead", true);
+        Destroy(player,1);
 
-        PlayerPrefs.SetInt("Score", finalScore);
-        PlayerPrefs.SetInt("Stars",finalStars);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("Stars", stars);
         PlayerPrefs.Save();
 
 
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
+        StartCoroutine(SlowDown());
+    }
+
+    private IEnumerator SlowDown()
+    {
+        while(Speed > 0.1f)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Speed *= 0.8f;
+        }
+        Speed = 0;
     }
 
     public void Restart() {

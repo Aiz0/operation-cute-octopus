@@ -8,9 +8,6 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject[] patterns;
 
-    [SerializeField]
-    private float maxSpeed;
-
     private GameController gameController;
     private int lastPattern;
 
@@ -20,7 +17,7 @@ public class Spawner : MonoBehaviour
     }
 
     private IEnumerator SpawnLoop() {
-        while(gameController.IsRunning()) {
+        while(gameController.GameRunning) {
             yield return new WaitForSeconds(gameController.GetSpawnInterval());
 
             GameObject pattern = GetRandomPattern();
