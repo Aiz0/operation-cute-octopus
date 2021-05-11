@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     private int damage = 1;
     [SerializeField]
     private Rigidbody2D rb;
-    PlayerController octopus = new PlayerController();
 
     [SerializeField]
     private GameObject effect;
