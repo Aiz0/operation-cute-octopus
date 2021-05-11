@@ -50,6 +50,9 @@ public class GameController : MonoBehaviour
     public float ReloadTime
     { get; private set; }
 
+    [SerializeField]
+    private float gameOverSpeed;
+
 
 
     public delegate void GameOver();
@@ -186,12 +189,12 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SlowDown()
     {
-        while(Speed > 0.1f)
+        while(Speed > gameOverSpeed)
         {
             yield return new WaitForSeconds(0.1f);
             Speed *= 0.8f;
         }
-        Speed = 0;
+        Speed = gameOverSpeed;
     }
 
     public void Restart() {
