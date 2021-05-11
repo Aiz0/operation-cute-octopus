@@ -156,44 +156,6 @@
                     "isPartOfComposite": true
                 }
             ]
-        },
-        {
-            "name": "Menu",
-            "id": "43d208c2-a649-4da2-a6b2-a79a020eab63",
-            "actions": [
-                {
-                    "name": "Touch",
-                    "type": "Button",
-                    "id": "d920fd95-c5b5-46a8-b81d-ef2b6b3eea35",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "4f121a98-a849-4232-805f-36f9db9e2612",
-                    "path": "<Touchscreen>/primaryTouch/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9f82e565-cbab-4b6e-989c-a896b23987cd",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": []
