@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour
     private GameObject effect;
     void Start()
     {
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         rb.velocity = transform.right * speed;
         Destroy(gameObject,2);
     }
