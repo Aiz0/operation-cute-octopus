@@ -217,7 +217,9 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over!");
         gameRunning = false;
         gameOverPanel.SetActive(true);
-        Destroy(player);
+        Animator animator = player.GetComponent<Animator>();
+        animator.SetBool("Dead", true);
+        Destroy(player,1);
         finalScore = getScore();
         finalStars = getStars();
         print(finalScore);
