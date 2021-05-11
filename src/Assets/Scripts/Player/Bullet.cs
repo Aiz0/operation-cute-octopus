@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
     private float speed = 20f;
-    [SerializeField]
-    private int damage = 1;
-    [SerializeField]
-    private Rigidbody2D rb;
 
     [SerializeField]
     private GameObject effect;
+
+    private Rigidbody2D rb;
+    private void Awake(){
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Start()
     {
         rb.velocity = transform.right * speed;
