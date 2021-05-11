@@ -8,9 +8,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    public PolygonCollider2D[] colliders;
-    public int currentColliderIndex = 0;
-    [SerializeField]
     private float horizontalMoveSpeed = 1;
 
     [SerializeField]
@@ -26,8 +23,6 @@ public class PlayerController : MonoBehaviour
 
     private float currentRotation;
     private float targetRotation;
-
-    public Animator animator;
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
@@ -95,13 +90,4 @@ public class PlayerController : MonoBehaviour
             transform.position.y
         );
     }
-
-    public void SetColliderForSprite(int spriteNum)
-    {
-        colliders[currentColliderIndex].enabled = false;
-        currentColliderIndex = spriteNum;
-        colliders[currentColliderIndex].enabled = true;
-    }
-
-
 }
