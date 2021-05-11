@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private PolygonCollider2D[] colliders;
-    public int currentColliderIndex = 0;
+    private int currentColliderIndex = 0;
     [SerializeField]
     private float horizontalMoveSpeed = 1;
 
