@@ -2491,7 +2491,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3333335
+  orthographic size: 5.333988
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2668,8 +2668,6 @@ MonoBehaviour:
   - {fileID: 8562764659509991137, guid: 4dd813d7fdedb456d9dd279ba1217984, type: 3}
   - {fileID: 8734725379586125639, guid: 09d375dc4f19641d5914eff77624e3dc, type: 3}
   - {fileID: 8789669558573053030, guid: a705247bfe65c4ef9a3585c83f64fc84, type: 3}
-  distanceBetweenPatterns: 5
-  maxSpeed: 15
 --- !u!4 &624523394
 Transform:
   m_ObjectHideFlags: 0
@@ -2678,7 +2676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.3333335, z: 0}
+  m_LocalPosition: {x: 0, y: 7.333988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2939,10 +2937,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 624523393}
+  distanceBetweenPatterns: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  riskToSpawnOther: 10
+  rockObstacles:
+  - {fileID: 5522873742524015300, guid: 07377ffc586252c4baa44038f2bba741, type: 3}
+  - {fileID: 825405336516130185, guid: a78ce32676d1d644181830ddb782d8c1, type: 3}
+  riskToSpawnRock: 10
+  allowOtherSpawns: 1
   player: {fileID: 243286401}
   gameOverPanel: {fileID: 375852847}
   direction: {x: 0, y: -1}
   speed: 3
+  maxSpeed: 15
   increaseSpeedBy: 0.05
   maxInk: 5
   reloadTime: 5
