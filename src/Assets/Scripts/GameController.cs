@@ -196,6 +196,6 @@ public class GameController : MonoBehaviour
 
     public void Restart() {
         Debug.Log("Restarting Game!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LoadScene.instance.load("Main");
     }
 }
