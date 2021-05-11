@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 243286405}
   - component: {fileID: 243286406}
   - component: {fileID: 243286408}
-  - component: {fileID: 243286404}
   - component: {fileID: 243286422}
   - component: {fileID: 243286409}
   - component: {fileID: 243286421}
@@ -209,6 +208,9 @@ GameObject:
   - component: {fileID: 243286411}
   - component: {fileID: 243286410}
   - component: {fileID: 243286407}
+  - component: {fileID: 243286423}
+  - component: {fileID: 243286404}
+  - component: {fileID: 243286424}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -293,10 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e090fe64f4d4f624f89fff53e60c2320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMoveSpeed: 5
-  rotationSpeed: 10
-  maxRotation: 45
-  xBounds: 2.5
 --- !u!50 &243286405
 Rigidbody2D:
   serializedVersion: 4
@@ -1835,6 +1833,34 @@ MonoBehaviour:
   - {fileID: 243286411}
   - {fileID: 243286410}
   - {fileID: 243286407}
+--- !u!114 &243286423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243286401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30518b1f0829a7d2afbc8e034ac48ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HorizontalMoveSpeed>k__BackingField: 5
+  <RotationAmount>k__BackingField: 10
+  <MaxRotation>k__BackingField: 30
+  <XBounds>k__BackingField: 2.5
+--- !u!114 &243286424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243286401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52bd401de2bb834c6a611854aecb5d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &275277322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2491,7 +2517,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3308268
+  orthographic size: 5.3383455
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2587,7 +2613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.3308268, z: 0}
+  m_LocalPosition: {x: 0, y: 7.3383455, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
