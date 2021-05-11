@@ -87,6 +87,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public Vector2 Direction {
+        get => direction;
+    }
+
     public delegate void GameOver();
     public event GameOver OnGameOver;
 
@@ -102,10 +106,6 @@ public class GameController : MonoBehaviour
     public delegate void HealthUpdate(int health);
     public event HealthUpdate OnHealthUpdate;
 
-
-    public Vector2 Direction {
-        get => direction;
-    }
 
     public float GetSpawnInterval(){
         return SpawnDistanceInterval / Speed;
@@ -134,7 +134,7 @@ public class GameController : MonoBehaviour
         return false;
     }
 
-    void Awake(){
+    private void Awake(){
         instance = this;
     }
 
@@ -184,15 +184,16 @@ public class GameController : MonoBehaviour
     }
 
     private void EndGame() {
-        Debug.Log("Game Over!");
-
-        OnGameOver();
         GameRunning = false;
+        OnGameOver();
+        UpdatePlayerStats();
+        StartCoroutine(SlowDown());
+    }
 
+    private void UpdatePlayerStats(){
         PlayerStats.Instance.HighScore = Score;
         PlayerStats.Instance.Stars = Stars;
 
-        StartCoroutine(SlowDown());
     }
 
     private IEnumerator SlowDown()
@@ -206,7 +207,6 @@ public class GameController : MonoBehaviour
     }
 
     public void Restart() {
-        Debug.Log("Restarting Game!");
         LoadScene.instance.load("Main");
     }
 }
