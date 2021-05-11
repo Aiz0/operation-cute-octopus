@@ -9,22 +9,22 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField]
     private float distanceBetweenPatterns;
-    [SerializeField]
+    [field: SerializeField]
     public GameObject BaseObstacle
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public GameObject[] OtherObstacles
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public float RiskToSpawnOther
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public GameObject[] RockObstacles
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public float RiskToSpawnRock
     { get; private set;}
-    [SerializeField]
+    [field: SerializeField]
     public bool AllowOtherSpawns
     { get; private set;}
 
@@ -34,22 +34,22 @@ public class GameController : MonoBehaviour
     private GameObject gameOverPanel;
     [SerializeField]
     private Vector2 direction = Vector2.down;
-    [SerializeField]
+    [field: SerializeField]
     public float Speed
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public float MaxSpeed
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public float SpawnDistanceInterval
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public float SpeedMultiplier
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public int MaxInk
     { get; private set; }
-    [SerializeField]
+    [field: SerializeField]
     public float ReloadTime
     { get; private set; }
 
@@ -59,8 +59,6 @@ public class GameController : MonoBehaviour
     private Text starText;
     [SerializeField]
     private Text inkText;
-
-    private Score scores;
 
     private int score;
     private int stars;
@@ -97,6 +95,7 @@ public class GameController : MonoBehaviour
 
     public void IncrementStars(int value) {
         SetStars(stars + value);
+        Score.Instance.Stars = stars;
     }
 
     private void SetHealth(int value) {
@@ -129,7 +128,6 @@ public class GameController : MonoBehaviour
     void Awake(){
         instance = this;
         StartGame();
-        scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
 
     private void StartGame() {
@@ -137,7 +135,7 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(false);
 
         SetScore(0);
-        SetStars(0);
+        SetStars(Score.Instance.Stars);
         SetInk(MaxInk);
 
         StartCoroutine(ScoreLoop());
@@ -182,13 +180,8 @@ public class GameController : MonoBehaviour
         animator.SetBool("Dead", true);
         Destroy(player,1);
 
-        PlayerPrefs.SetInt("Score", score);
-        PlayerPrefs.SetInt("Stars", stars);
-        PlayerPrefs.Save();
+        Score.Instance.HighScore = score;
 
-
-        scores.UpdateHighScore();
-        scores.UpdateTotalStars();
         StartCoroutine(SlowDown());
     }
 
