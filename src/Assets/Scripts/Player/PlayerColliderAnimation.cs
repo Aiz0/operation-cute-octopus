@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColiderAnimation : MonoBehaviour
+public class PlayerColliderAnimation : MonoBehaviour
 {
     [SerializeField]
     private PolygonCollider2D[] colliders;
