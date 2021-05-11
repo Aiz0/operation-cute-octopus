@@ -11,91 +11,72 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float distanceBetweenPatterns;
     [field: SerializeField]
-    public GameObject BaseObstacle
-    { get; private set; }
+    public GameObject BaseObstacle { get; private set; }
     [field: SerializeField]
-    public GameObject[] OtherObstacles
-    { get; private set; }
+    public GameObject[] OtherObstacles { get; private set; }
     [field: SerializeField]
-    public float RiskToSpawnOther
-    { get; private set; }
+    public float RiskToSpawnOther { get; private set; }
     [field: SerializeField]
-    public GameObject[] RockObstacles
-    { get; private set; }
+    public GameObject[] RockObstacles { get; private set; }
     [field: SerializeField]
-    public float RiskToSpawnRock
-    { get; private set;}
+    public float RiskToSpawnRock { get; private set;}
     [field: SerializeField]
-    public bool AllowOtherSpawns
-    { get; private set;}
+    public bool AllowOtherSpawns { get; private set;}
 
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [field: SerializeField]
-    public float Speed
-    { get; private set; }
+    public float Speed { get; private set; }
     [field: SerializeField]
-    public float MaxSpeed
-    { get; private set; }
-    [field: SerializeField]
-    public float SpawnDistanceInterval
-    { get; private set; }
-    [field: SerializeField]
-    public float SpeedMultiplier
-    { get; private set; }
-    [field: SerializeField]
-    public int MaxInk
-    { get; private set; }
-    [field: SerializeField]
-    public float ReloadTime
-    { get; private set; }
-    public bool IsReloading
-    { get; private set; }
-    public bool GameRunning
-    { get; private set; }
-
+    public float MaxSpeed { get; private set; }
     [SerializeField]
     private float gameOverSpeed;
+
+    [field: SerializeField]
+    public float SpeedMultiplier { get; private set; }
+
+    [field: SerializeField]
+    public float SpawnDistanceInterval { get; private set; }
+    [field: SerializeField]
+    public int MaxInk { get; private set; }
+
+    [field: SerializeField]
+    public float ReloadTime { get; private set; }
+    public bool IsReloading { get; private set; }
+    public bool GameRunning { get; private set; }
+
 
     private int _score;
     private int _stars;
     private int _ink;
     private int _health = 1;
 
-    public int Score
-    {
+    public int Score {
         get => _score;
-
         set {
             _score = value;
             if (OnScoreUpdate != null ) OnScoreUpdate(_score);
         }
     }
 
-    public int Stars
-    {
+    public int Stars {
         get => _stars;
-
         set {
             _stars = value;
             if (OnStarUpdate != null ) OnStarUpdate(_stars);
         }
     }
 
-    public int Ink
-    {
+    public int Ink {
         get => _ink;
-
         set {
             _ink = value;
             if (OnInkUpdate != null) OnInkUpdate(_ink);
         }
     }
 
-    public int Health
-    {
+    public int Health {
         get => _health;
-
         set {
             _health = value;
             if(_health <= 0) {
@@ -175,7 +156,7 @@ public class GameController : MonoBehaviour
     private IEnumerator ScoreLoop() {
         while(GameRunning) {
             yield return new WaitForSeconds(0.2f * GetSpawnInterval());
-            IncrementScore(1);
+            Score++;
         }
     }
 
