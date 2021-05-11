@@ -110,10 +110,11 @@ public class GameController : MonoBehaviour
 
     private void SetHealth(int value) {
         health = value;
-        if (OnHealthUpdate != null )OnHealthUpdate(health);
         if(health <= 0) {
+            health = 0;
             EndGame();
         }
+        if (OnHealthUpdate != null )OnHealthUpdate(health);
     }
 
     public void DecrementHealth(int value) {
