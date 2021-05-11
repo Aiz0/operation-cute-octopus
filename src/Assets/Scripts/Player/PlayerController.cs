@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private float currentRotation;
     private float targetRotation;
 
-    public Animator animator;
+    private Animator animator;
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
