@@ -234,7 +234,7 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SlowDown()
     {
-        while(speed > 0)
+        while(speed > 0.1f)
         {
             yield return new WaitForSeconds(0.1f);
             speed *= 0.8f;

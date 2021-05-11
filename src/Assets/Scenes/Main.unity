@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &243286402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1498,8 +1498,8 @@ MonoBehaviour:
   player: {fileID: 243286401}
   gameOverPanel: {fileID: 375852847}
   direction: {x: 0, y: -1}
-  speed: 15
-  maxSpeed: 15
+  speed: 3
+  maxSpeed: 10
   increaseSpeedBy: 0.05
   maxInk: 5
   reloadTime: 5
