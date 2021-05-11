@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    public PolygonCollider2D[] colliders;
+    private PolygonCollider2D[] colliders;
     public int currentColliderIndex = 0;
     [SerializeField]
     private float horizontalMoveSpeed = 1;
