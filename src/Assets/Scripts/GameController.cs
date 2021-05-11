@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-1)]
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
@@ -31,8 +32,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
-    private GameObject gameOverPanel;
-    [SerializeField]
     private Vector2 direction = Vector2.down;
     [field: SerializeField]
     public float Speed
@@ -52,6 +51,12 @@ public class GameController : MonoBehaviour
     [field: SerializeField]
     public float ReloadTime
     { get; private set; }
+
+
+
+    public delegate void GameOver();
+    public event GameOver OnGameOver;
+
 
     [SerializeField]
     private Text scoreText;
@@ -132,8 +137,6 @@ public class GameController : MonoBehaviour
 
     private void StartGame() {
         GameRunning = true;
-        gameOverPanel.SetActive(false);
-
         SetScore(0);
         SetStars(Score.Instance.Stars);
         SetInk(MaxInk);
@@ -174,8 +177,9 @@ public class GameController : MonoBehaviour
 
     private void EndGame() {
         Debug.Log("Game Over!");
+
+        OnGameOver();
         GameRunning = false;
-        gameOverPanel.SetActive(true);
         Animator animator = player.GetComponent<Animator>();
         animator.SetBool("Dead", true);
         Destroy(player,1);
