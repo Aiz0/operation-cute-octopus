@@ -10,15 +10,14 @@ public class HurtBox : MonoBehaviour
     private GameObject effect;
 
     private void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Player")){
-            if(effect != null){
-                Instantiate(effect, transform.position, Quaternion.identity);
-
-                ScreenShakeController.instance.TriggerShake(0.5f);
-            }
+        if (other.CompareTag("Player")) {           
+            if (effect != null){
+                Instantiate(effect, transform.position, Quaternion.identity);               
+            }            
+            ScreenShakeController.instance.TriggerShake(0.5f);
             GameController.instance.DecrementHealth(damage);
             Destroy(gameObject);
         }
-
-    }
+    }   
 }
+
