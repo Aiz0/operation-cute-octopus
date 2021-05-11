@@ -193,3 +193,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRotateSpeed: 40
   minRotateSpeed: 20
+  randomStartRotation: 1
