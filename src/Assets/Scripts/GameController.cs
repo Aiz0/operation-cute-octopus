@@ -58,13 +58,17 @@ public class GameController : MonoBehaviour
     public delegate void GameOver();
     public event GameOver OnGameOver;
 
+    public delegate void ScoreUpdate(int score);
+    public event ScoreUpdate OnScoreUpdate;
 
-    [SerializeField]
-    private Text scoreText;
-    [SerializeField]
-    private Text starText;
-    [SerializeField]
-    private Text inkText;
+    public delegate void StarUpdate(int stars);
+    public event StarUpdate OnStarUpdate;
+
+    public delegate void InkUpdate(int ink);
+    public event InkUpdate OnInkUpdate;
+
+    public delegate void HealthUpdate(int health);
+    public event HealthUpdate OnHealthUpdate;
 
     private int score;
     private int stars;
@@ -87,7 +91,7 @@ public class GameController : MonoBehaviour
 
     private void SetScore(int value) {
         score = value;
-        scoreText.text = score.ToString();
+        if (OnScoreUpdate != null )OnScoreUpdate(score);
     }
 
     public void IncrementScore(int value) {
@@ -96,7 +100,7 @@ public class GameController : MonoBehaviour
 
     private void SetStars(int value) {
         stars = value;
-        starText.text = stars.ToString();
+        if (OnStarUpdate != null )OnStarUpdate(stars);
     }
 
     public void IncrementStars(int value) {
@@ -106,6 +110,7 @@ public class GameController : MonoBehaviour
 
     private void SetHealth(int value) {
         health = value;
+        if (OnHealthUpdate != null )OnHealthUpdate(health);
         if(health <= 0) {
             EndGame();
         }
@@ -117,7 +122,7 @@ public class GameController : MonoBehaviour
 
     private void SetInk(int value) {
         ink = value;
-        inkText.text = ink.ToString();
+        if (OnInkUpdate != null )OnInkUpdate(ink);
     }
 
     public bool DecrementInk(int value) {
@@ -133,6 +138,9 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         instance = this;
+    }
+
+    private void Start(){
         StartGame();
     }
 
@@ -141,6 +149,7 @@ public class GameController : MonoBehaviour
         SetScore(0);
         SetStars(Score.Instance.Stars);
         SetInk(MaxInk);
+        SetHealth(1);
 
         StartCoroutine(ScoreLoop());
         StartCoroutine(IncreaseSpeedLoop());
