@@ -3,52 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class Score : Singleton<Score>
 {
-    public Text highScoreText;
-    public Text totalStarsText;
 
+    private int _highScore;
+    private int _stars;
 
-    // Start is called before the first frame update
-    void Start()
+    public int HighScore
     {
-        UpdateHighScore();
-        UpdateTotalStars();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void UpdateHighScore()
-    {
-        if (PlayerPrefs.GetInt("Score") >= PlayerPrefs.GetInt("HighScore"))
-        {
-            PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
-            highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
-            print(PlayerPrefs.GetInt("HighScore"));
-            
+        get {
+            if (_highScore == 0){
+                _highScore = PlayerPrefs.GetInt("HighScore", 0);
+            }
+            return _highScore;
         }
-        else
-        {
-            highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        set {
+            if (value > _highScore){
+                _highScore = value;
+                PlayerPrefs.SetInt("HighScore", _highScore);
+                PlayerPrefs.Save();
+            }
         }
-
-
-        PlayerPrefs.Save();
     }
 
-    public void UpdateTotalStars()
+    public int Stars
     {
-        int newStars = PlayerPrefs.GetInt("Stars");
-        int totalStars = PlayerPrefs.GetInt("TotalStars");
-        int addStars = newStars + totalStars;
-        PlayerPrefs.SetInt("TotalStars",addStars);
-        PlayerPrefs.SetInt("Stars", 0);
-        totalStarsText.text = PlayerPrefs.GetInt("TotalStars").ToString();
-        PlayerPrefs.Save();
+        get {
+            if (_stars == 0){
+                _stars = PlayerPrefs.GetInt("Stars", 0);
+            }
+            return _stars;
+        }
+        set {
+            _stars = value;
+                PlayerPrefs.SetInt("Stars", _stars);
+                PlayerPrefs.Save();
+        }
     }
 }
