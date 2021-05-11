@@ -2160,6 +2160,7 @@ GameObject:
   - component: {fileID: 275277322}
   - component: {fileID: 275277324}
   - component: {fileID: 275277323}
+  - component: {fileID: 375852848}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -2167,6 +2168,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &375852848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375852847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c2d3eb8ab8f358695d92b7d5f198b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &412212786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,7 +2530,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3383455
+  orthographic size: 5.3344374
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2613,7 +2626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.3383455, z: 0}
+  m_LocalPosition: {x: 0, y: 7.3344374, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2804,7 +2817,6 @@ MonoBehaviour:
   <RiskToSpawnRock>k__BackingField: 10
   <AllowOtherSpawns>k__BackingField: 1
   player: {fileID: 243286401}
-  gameOverPanel: {fileID: 375852847}
   direction: {x: 0, y: -1}
   <Speed>k__BackingField: 3
   <MaxSpeed>k__BackingField: 15
