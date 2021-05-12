@@ -58,6 +58,8 @@ public class GameController : MonoBehaviour
     private int score;
     private int stars;
     private int health = 1;
+    private int drillPowerUp;
+    public GameObject drillObject;
     // ink that can be fired
     private int ink = 1;
 
@@ -78,6 +80,7 @@ public class GameController : MonoBehaviour
         SetScore(0);
         SetStars(0);
         SetInk(maxInk);
+        SetDrillPowerUp(0);
 
         StartCoroutine(ScoreLoop());
     }
@@ -167,6 +170,7 @@ public class GameController : MonoBehaviour
 
     public void IncrementStars(int value) {
         SetStars(stars + value);
+        InitiateDrillPowerUp(true); //har lagt drillPowerUp här temporärt, REMOVE när den har egen pickup
     }
 
     private void SetHealth(int value) {
@@ -176,7 +180,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void DecrementHealth(int value) {
+        public void DecrementHealth(int value) {
         SetHealth(health - value);
     }
 
@@ -184,6 +188,7 @@ public class GameController : MonoBehaviour
         ink = value;
         inkText.text = ink.ToString();
     }
+    
 
     public bool DecrementInk(int value) {
         if (ink - value >= 0){
@@ -196,7 +201,7 @@ public class GameController : MonoBehaviour
         return false;
     }
 
-    private void ReloadInk() {
+        private void ReloadInk() {
         if (!isReloading) {
             StartCoroutine(Reload());
         }
@@ -207,6 +212,37 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         SetInk(maxInk);
         isReloading = false;
+    }
+
+    public void InitiateDrillPowerUp(bool initiate)
+    {
+       drillObject.SetActive(initiate);
+        SetDrillPowerUp(3); //skulle kunna vara en variabel med [SerializeField] för att enklare kunna ändra
+
+    }
+
+    private void SetDrillPowerUp(int value)
+    {
+        drillPowerUp = value;
+      
+        if (drillPowerUp == 3){
+            drillObject.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
+        }
+        if (drillPowerUp == 2){
+            drillObject.transform.localScale = new Vector3(0.075f, 0.075f, 1f);
+        }
+        if (drillPowerUp == 1){
+            drillObject.transform.localScale = new Vector3(0.05f, 0.05f, 1f);
+        }
+        if (drillPowerUp <= 0)
+        {
+            drillObject.SetActive (false);
+        }
+    }
+
+    public void DecrementDrillPowerUp(int value)
+    {
+        SetDrillPowerUp(drillPowerUp - value);
     }
 
     public bool IsRunning() {

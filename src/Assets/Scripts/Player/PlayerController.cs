@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
         }
         Move(direction);
         Rotate(direction);
+        if (Input.GetKey("t")){  //T for drill powerup devhack FTW
+            GameController.instance.InitiateDrillPowerUp(true);
+        }
     }
 
     public void OnMove(InputValue input){

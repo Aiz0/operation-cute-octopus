@@ -8,6 +8,7 @@ TagManager:
   - HighScore
   - Obstacle
   - Enemy
+  - DrillPowerUp
   layers:
   - Default
   - TransparentFX
