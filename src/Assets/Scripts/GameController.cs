@@ -207,6 +207,6 @@ public class GameController : MonoBehaviour
     }
 
     public void Restart() {
-        LoadScene.instance.load("Main");
+        LoadScene.instance.Load("Main");
     }
 }

@@ -2017,9 +2017,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 677672903}
+      - m_Target: {fileID: 1638038096}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: load
+        m_MethodName: Load
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2652,7 +2652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.25, z: 0}
+  m_LocalPosition: {x: 0, y: 7.327586, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2672,17 +2672,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorType: 7
   anchorOffset: {x: 0, y: 2, z: 0}
---- !u!114 &677672903 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4281106621974233008, guid: f953141e4ffe868e895c1b9865c589ce, type: 3}
-  m_PrefabInstance: {fileID: 148856212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41de57548eb4db34895853e6ab19f449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &934384641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3213,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6998e131f60604d2696e68ba9a577386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1638038096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5016466586593426342, guid: f953141e4ffe868e895c1b9865c589ce, type: 3}
+  m_PrefabInstance: {fileID: 148856212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41de57548eb4db34895853e6ab19f449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1832147443

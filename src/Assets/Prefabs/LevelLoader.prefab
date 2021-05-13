@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4281106620593653727}
   - component: {fileID: 4281106620593653724}
   - component: {fileID: 4281106620593653725}
-  - component: {fileID: 4281106620593653726}
   m_Layer: 5
   m_Name: Crossfade
   m_TagString: Untagged
@@ -101,25 +100,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &4281106620593653726
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4281106620593653723}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3fc862e312a6590948a40312fb5d584d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4281106621974233009
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +109,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4281106621974233011}
-  - component: {fileID: 4281106621974233008}
   m_Layer: 5
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -152,20 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4281106621974233008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4281106621974233009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41de57548eb4db34895853e6ab19f449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transition: {fileID: 4281106620593653726}
-  transitionTime: 0.25
 --- !u!1 &4281106622397617942
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +143,7 @@ GameObject:
   - component: {fileID: 4281106622397617947}
   - component: {fileID: 4281106622397617944}
   - component: {fileID: 4281106622397617946}
+  - component: {fileID: 5016466586593426342}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -254,3 +220,16 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &5016466586593426342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281106622397617942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41de57548eb4db34895853e6ab19f449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTime: 0.25

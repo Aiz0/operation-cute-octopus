@@ -753,9 +753,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1722848481}
+      - m_Target: {fileID: 2057960851}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: load
+        m_MethodName: Load
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1175,17 +1175,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542787321}
   m_CullTransparentMesh: 1
---- !u!114 &1722848481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4281106621974233008, guid: f953141e4ffe868e895c1b9865c589ce, type: 3}
-  m_PrefabInstance: {fileID: 4281106621547424593}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41de57548eb4db34895853e6ab19f449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1928153916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,9 +1341,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1722848481}
+      - m_Target: {fileID: 2057960851}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: load
+        m_MethodName: Load
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1439,6 +1428,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2057960851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5016466586593426342, guid: f953141e4ffe868e895c1b9865c589ce, type: 3}
+  m_PrefabInstance: {fileID: 4281106621547424593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41de57548eb4db34895853e6ab19f449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4281106621547424593
 PrefabInstance:
   m_ObjectHideFlags: 0

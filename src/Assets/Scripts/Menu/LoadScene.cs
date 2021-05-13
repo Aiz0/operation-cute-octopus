@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class LoadScene : MonoBehaviour
 {
     public static LoadScene instance;
 
-    [SerializeField]
-    private Animator transition;
-
+    private CanvasGroup canvasGroup;
     [SerializeField]
     private float transitionTime = 1f;
 
     private void Awake(){
         instance = this;
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void load(string sceneName){
-        StartCoroutine(LoadLevel(sceneName));
+    private void OnEnable(){
+        FadeOut();
     }
 
-    IEnumerator LoadLevel(string sceneName){
-        transition.SetTrigger("Start");
+    public void Load(string sceneName){
+        canvasGroup.alpha = 0;
+        LeanTween.alphaCanvas(canvasGroup, 1, transitionTime).setOnComplete(() => LoadLevel(sceneName));
+    }
 
-        yield return new WaitForSeconds(transitionTime);
+    private void FadeOut(){
+        canvasGroup.alpha = 1;
+        LeanTween.alphaCanvas(canvasGroup, 0, transitionTime);
+    }
 
+    private void LoadLevel(string sceneName){
         SceneManager.LoadScene(sceneName);
     }
 }
