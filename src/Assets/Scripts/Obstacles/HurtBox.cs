@@ -8,17 +8,18 @@ public class HurtBox : MonoBehaviour
     private int damage = 1;
     [SerializeField]
     private GameObject effect;
+    [SerializeField]
+    private bool rock = false;
 
     private void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Player")){
-            if(effect != null){
-                Instantiate(effect, transform.position, Quaternion.identity);
-
-                ScreenShakeController.instance.TriggerShake(0.5f);
-            }
+        if (other.CompareTag("Player")) {           
+            if (effect != null){
+                Instantiate(effect, transform.position, Quaternion.identity);               
+            }            
+            ScreenShakeController.instance.TriggerShake(0.5f);
             GameController.instance.DecrementHealth(damage);
-            Destroy(gameObject);
+           if(!rock) Destroy(gameObject); // Hindra Stenarna att förstöras vid kontakt med spelaren
         }
-
-    }
+    }   
 }
+
