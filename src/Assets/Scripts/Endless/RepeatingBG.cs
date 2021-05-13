@@ -5,24 +5,22 @@ using UnityEngine;
 public class RepeatingBG : MonoBehaviour
 {
     public GameController gC;
-    private Rigidbody2D rb;
+    private float speed;
     [SerializeField]
     private float endY;
     [SerializeField]
     private float startY;
-    [SerializeField]
-    private float multiplier = 1;
 
-    private void Awake()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        speed = gC.GetSpeed();
     }
 
     private void Update()
     {
-        rb.velocity = gC.GetDirection() * multiplier * gC.GetSpeed();
+        transform.Translate(Vector2.down * gC.GetSpeed() * Time.deltaTime);
 
-        if (transform.position.y <= endY)
+        if(transform.position.y <= endY)
         {
             Vector2 pos = new Vector2(transform.position.x, startY);
             transform.position = pos;
