@@ -9,6 +9,20 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField]
     private Spawner spawner;
+    [SerializeField]
+    private float distanceBetweenPatterns = 5.0f;
+    [SerializeField]
+    private GameObject baseObstacle;
+    [SerializeField]
+    private GameObject[] otherObstacles;
+    [SerializeField]
+    private float riskToSpawnOther = 10;
+    [SerializeField]
+    private GameObject[] rockObstacles;
+    [SerializeField]
+    private float riskToSpawnRock = 10;
+    [SerializeField]
+    private bool allowOtherSpawns = true;
 
     [SerializeField]
     private GameObject player;
@@ -17,7 +31,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Vector2 direction = Vector2.down;
     [SerializeField]
-    public float speed = 1;
+    private float speed = 1;
+    [SerializeField]
+    private float maxSpeed = 15;
     [SerializeField]
     private float increaseSpeedBy;
     [SerializeField]
@@ -57,7 +73,7 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         instance = this;
-        scoreInterval = spawner.distanceBetweenPatterns / speed;
+        scoreInterval = distanceBetweenPatterns / speed;
         StartGame();
         scores = GameObject.FindWithTag("HighScore").GetComponent<Score>();
     }
@@ -81,17 +97,8 @@ public class GameController : MonoBehaviour
         while(IsRunning()) {
             yield return new WaitForSeconds(scoreInterval);
             IncrementScore(1);
-            scoreInterval = spawner.distanceBetweenPatterns / speed;
+            scoreInterval = distanceBetweenPatterns / speed;
         }
-    }
-
-
-    public Vector2 GetDirection() {
-        return direction;
-    }
-
-    public float GetSpeed() {
-        return speed;
     }
 
     private void SetScore(int value) {
@@ -107,6 +114,56 @@ public class GameController : MonoBehaviour
     public int getStars()
     {
         return stars;
+    }
+
+    public Vector2 GetDirection()
+    {
+        return direction;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public int GetInk()
+    {
+        return ink;
+    }
+
+    public float GetDistance()
+    {
+        return distanceBetweenPatterns;
+    }
+
+    public bool GetAllowOtherSpawns()
+    {
+        return allowOtherSpawns;
+    }
+
+    public float GetRiskToSpawnRock()
+    {
+        return riskToSpawnRock;
+    }
+
+    public float GetRiskToSpawnOther()
+    {
+        return riskToSpawnOther;
+    }
+
+    public GameObject GetBaseObstacle()
+    {
+        return baseObstacle;
+    }
+
+    public GameObject[] GetOtherObstacles()
+    {
+        return otherObstacles;
+    }
+
+    public GameObject[] GetRockObstacles()
+    {
+        return rockObstacles;
     }
 
     public void IncrementScore(int value) {
@@ -177,10 +234,6 @@ public class GameController : MonoBehaviour
         return false;
     }
 
-    public int GetInk() {
-        return ink;
-    }
-
     private void ReloadInk() {
         if (!isReloading) {
             StartCoroutine(Reload());
@@ -202,7 +255,9 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over!");
         gameRunning = false;
         gameOverPanel.SetActive(true);
-        Destroy(player);
+        Animator animator = player.GetComponent<Animator>();
+        animator.SetBool("Dead", true);
+        Destroy(player,1);
         finalScore = getScore();
         finalStars = getStars();
         print(finalScore);
@@ -212,6 +267,17 @@ public class GameController : MonoBehaviour
         PlayerPrefs.Save();
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
+        StartCoroutine(SlowDown());
+    }
+
+    private IEnumerator SlowDown()
+    {
+        while(speed > 0.1f)
+        {
+            yield return new WaitForSeconds(0.1f);
+            speed *= 0.8f;
+        }
+        speed = 0;
     }
 
     //
@@ -242,9 +308,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void increaseSpeed()
+    public void IncreaseSpeed()
     {
-        speed += increaseSpeedBy;
+        if (maxSpeed > speed) speed += increaseSpeedBy;
     }
 
     public void Restart() {
