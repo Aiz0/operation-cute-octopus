@@ -45,7 +45,6 @@ public class GameController : MonoBehaviour
     public bool IsReloading { get; private set; }
     public bool GameRunning { get; private set; }
 
-
     private int _score;
     private int _stars;
     private int _ink;
