@@ -168,8 +168,10 @@ public class GameController : MonoBehaviour
 
     private IEnumerator Reload() {
         IsReloading = true;
-        yield return new WaitForSeconds(ReloadTime);
-        Ink = MaxInk;
+        while(Ink < MaxInk){
+            yield return new WaitForSeconds(ReloadTime);
+            Ink++;
+        }
         IsReloading = false;
     }
 
