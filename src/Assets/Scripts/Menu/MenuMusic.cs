@@ -4,21 +4,26 @@ using UnityEngine.SceneManagement;
 
 public class MenuMusic : MonoBehaviour
 {
-    static bool AudioBegin = false;
-    void Awake()
+    private static MenuMusic instance;
+
+    private void Awake()
     {
-        if (!AudioBegin)
+        if(instance != null)
         {
-            gameObject.GetComponent<AudioSource>().Play();
-            DontDestroyOnLoad(gameObject);
-            AudioBegin = true;
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(transform.gameObject);
         }
     }
-    void Update ()
+
+    private void Update()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("main"))
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("main"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
