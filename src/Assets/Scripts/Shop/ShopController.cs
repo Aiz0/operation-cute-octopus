@@ -31,7 +31,6 @@ public class ShopController : MonoBehaviour
     public void Start()
     {
         UpdateTotalStars();
-
         UpdateHeartText();
         UpdateInkText();
         CheckCurrentSkin();
@@ -45,9 +44,10 @@ public class ShopController : MonoBehaviour
     // UPDATE TOTAL STARS
     //
 
+    // ?
     public void UpdateTotalStars()
     {
-     for(int i = 0; i < totalStarsText.Length; i++)
+        for(int i = 0; i < totalStarsText.Length; i++)
         {
             totalStarsText[i].text = PlayerPrefs.GetInt("TotalStars").ToString();
         }
@@ -177,15 +177,5 @@ public class ShopController : MonoBehaviour
                 UpdateStatsButton();
             }
         }
-    }
-
-    //
-    // 
-    //
-
-
-    public void StartGameButton()
-    {
-        SceneManager.LoadScene("Main");
     }
 }

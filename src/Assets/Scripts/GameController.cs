@@ -52,8 +52,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text healthText;
 
-    public int finalScore;
-    public int finalStars;
+    private int finalScore;
+    private int finalStars;
 
     private Score scores;
 
@@ -104,6 +104,11 @@ public class GameController : MonoBehaviour
     private void SetScore(int value) {
         score = value;
         scoreText.text = score.ToString();
+
+        if(score > PlayerPrefs.GetInt("HighScore"))
+        {
+            print("Najs");
+        }
     }
 
     public int getScore()
@@ -172,7 +177,7 @@ public class GameController : MonoBehaviour
 
     private void SetStars(int value) {
         stars = value;
-        starText.text = stars.ToString();
+        starText.text = (stars + PlayerPrefs.GetInt("TotalStars")).ToString();
     }
 
     public void IncrementStars(int value) {
