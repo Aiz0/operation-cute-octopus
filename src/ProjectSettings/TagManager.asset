@@ -8,6 +8,7 @@ TagManager:
   - HighScore
   - Obstacle
   - Enemy
+  - Rock
   layers:
   - Default
   - TransparentFX
