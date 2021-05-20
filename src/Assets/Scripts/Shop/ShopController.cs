@@ -6,22 +6,28 @@ using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
-    public Text currentHearts;
-    public Text currentInk;
 
-    public Text[] totalStarsText;
-    public Button[] skinButton;
-    public Text[] skinText;
+    [SerializeField]
+    private Text currentHearts, currentInk;
 
-    public Button[] statsButton;
-    public Text[] statsText;
+    [SerializeField]
+    private Text[] totalStarsText;
+    [SerializeField]
+    private Button[] skinButton;
+    [SerializeField]
+    private Text[] skinText;
+
+    [SerializeField]
+    private Button[] statsButton;
+    [SerializeField]
+    private Text[] statsText;
 
     /// CHANGE IN UNITY
-    public int skinCost;
-    public int statCost;
+    [SerializeField]
+    private int skinCost, statCost;
 
-    public int maxHealth;
-    public int maxInk;
+    [SerializeField]
+    private int maxHealth, maxInk;
 
     public void Start()
     {

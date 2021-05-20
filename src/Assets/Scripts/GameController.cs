@@ -37,7 +37,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float increaseSpeedBy;
 
-    //Kan ta bort?
     [SerializeField]
     private int maxInk = 1;
 
@@ -47,6 +46,8 @@ public class GameController : MonoBehaviour
     private float scoreInterval;
 
     [SerializeField]
+    private Text newHighScoreText;
+    [SerializeField]
     private Text scoreText;
     [SerializeField]
     private Text starText;
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
     private Text inkText;
     [SerializeField]
     private Text healthText;
+    [SerializeField]
     private Image reloadImage;
 
     private int finalScore;
@@ -126,7 +128,7 @@ public class GameController : MonoBehaviour
 
         if(score > PlayerPrefs.GetInt("HighScore"))
         {
-            print("Najs");
+            newHighScoreText.gameObject.SetActive(true);
         }
     }
 
@@ -270,11 +272,10 @@ public class GameController : MonoBehaviour
         gameRunning = false;
         gameOverPanel.SetActive(true);
         Animator animator = player.GetComponent<Animator>();
-        animator.SetBool("Dead", true);
+        animator.SetBool("isDead", true);
         Destroy(player,1);
         finalScore = score;
         finalStars = stars;
-        print(finalScore);
 
         PlayerPrefs.SetInt("Score", finalScore);
         PlayerPrefs.SetInt("Stars",finalStars);

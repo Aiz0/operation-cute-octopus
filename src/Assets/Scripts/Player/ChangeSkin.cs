@@ -26,7 +26,6 @@ public class ChangeSkin : MonoBehaviour
         {
             if(i == currentSkin)
             {
-                print(currentSkin);
                 animator.SetInteger("Change", i);
             }
         }

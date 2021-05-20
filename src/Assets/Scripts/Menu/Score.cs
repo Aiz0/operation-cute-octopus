@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text highScoreText;
-    public Text totalStarsText;
+    [SerializeField]
+    private Text highScoreText, totalStarsText;
 
     void Start()
     {
