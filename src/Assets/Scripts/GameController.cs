@@ -36,8 +36,11 @@ public class GameController : MonoBehaviour
     private float maxSpeed = 15;
     [SerializeField]
     private float increaseSpeedBy;
+
+    //Kan ta bort?
     [SerializeField]
     private int maxInk = 1;
+
     [SerializeField]
     private float reloadTime;
 
@@ -59,11 +62,8 @@ public class GameController : MonoBehaviour
 
     private int score;
     private int stars;
-
-    public GameObject parent;
-
-
     private int health;
+
     // ink that can be fired
     private int ink = 1;
 
@@ -84,7 +84,6 @@ public class GameController : MonoBehaviour
 
         UpdateHealth();
         UpdateInk();
-        ChangeSkins();
 
         SetScore(0);
         SetStars(0);
@@ -109,16 +108,6 @@ public class GameController : MonoBehaviour
         {
             print("Najs");
         }
-    }
-
-    public int getScore()
-    {
-        return score;
-    }
-
-    public int getStars()
-    {
-        return stars;
     }
 
     public Vector2 GetDirection()
@@ -263,8 +252,8 @@ public class GameController : MonoBehaviour
         Animator animator = player.GetComponent<Animator>();
         animator.SetBool("Dead", true);
         Destroy(player,1);
-        finalScore = getScore();
-        finalStars = getStars();
+        finalScore = score;
+        finalStars = stars;
         print(finalScore);
 
         PlayerPrefs.SetInt("Score", finalScore);
@@ -283,34 +272,6 @@ public class GameController : MonoBehaviour
             speed *= 0.8f;
         }
         speed = 0;
-    }
-
-    //
-    // SKINS
-    //
-    public void ChangeSkins()
-    {
-        if (PlayerPrefs.GetInt("Skins") == 0)
-        {
-            RemoveSkinChildren();
-
-            parent.transform.GetChild(0).gameObject.SetActive(true);
-        }
-
-        if (PlayerPrefs.GetInt("Skins") == 1)
-        {
-            RemoveSkinChildren();
-
-            parent.transform.GetChild(1).gameObject.SetActive(true);
-        }
-    }
-
-    public void RemoveSkinChildren()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            parent.transform.GetChild(0).gameObject.SetActive(false);
-        }
     }
 
     public void IncreaseSpeed()

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
-    public static int skin;
-
     public Text currentHearts;
     public Text currentInk;
 
@@ -18,10 +16,7 @@ public class ShopController : MonoBehaviour
     public Button[] statsButton;
     public Text[] statsText;
 
- 
-    /// 
     /// CHANGE IN UNITY
-    /// 
     public int skinCost;
     public int statCost;
 
@@ -39,12 +34,7 @@ public class ShopController : MonoBehaviour
         PlayerPrefs.SetString("SkinList", PlayerPrefs.GetString("SkinList") + "0");
     }
 
-
-    //
     // UPDATE TOTAL STARS
-    //
-
-    // ?
     public void UpdateTotalStars()
     {
         for(int i = 0; i < totalStarsText.Length; i++)
@@ -52,10 +42,8 @@ public class ShopController : MonoBehaviour
             totalStarsText[i].text = PlayerPrefs.GetInt("TotalStars").ToString();
         }
     }
-    //
-    // BUY SKINS
-    //
 
+    // BUY SKINS
     public void CheckCurrentSkin()
     {
         for(int i = 0; i < skinButton.Length; i++)
@@ -107,12 +95,7 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    //
     // BUY STATS
-    //
-
-
-    //Rengör
     public void UpdateStatsButton()
     {
         for(int i = 0; i < statsButton.Length; i++)

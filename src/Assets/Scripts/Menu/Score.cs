@@ -8,13 +8,10 @@ public class Score : MonoBehaviour
     public Text highScoreText;
     public Text totalStarsText;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         UpdateHighScore();
         UpdateTotalStars();
-
     }
 
     public void UpdateHighScore()
