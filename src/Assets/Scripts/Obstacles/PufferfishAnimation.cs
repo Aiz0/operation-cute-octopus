@@ -12,10 +12,6 @@ public class PufferfishAnimation : MonoBehaviour
 
     private void Awake() {
         animator = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
         animator.SetBool("Puff", false);
     }
 
