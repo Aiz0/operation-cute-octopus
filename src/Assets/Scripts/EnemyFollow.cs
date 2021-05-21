@@ -15,7 +15,6 @@ public class EnemyFollow : MonoBehaviour
     }
     void Update()
     {
-
         if (Vector2.Distance(transform.position, target.transform.position) < 5)
         {
             Vector3 targetDir = target.transform.position - transform.position;
@@ -25,5 +24,4 @@ public class EnemyFollow : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * moveSpeed);
         }
     }
-
 }

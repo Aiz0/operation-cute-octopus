@@ -7,12 +7,13 @@ public class PufferfishAnimation : MonoBehaviour
 {
     [SerializeField]
     private float puffAt = 3;
-
+    public int angle;
     private Animator animator;
 
     private void Awake() {
         animator = GetComponent<Animator>();
         animator.SetBool("Puff", false);
+        transform.rotation = Quaternion.Euler(0, 0, 90);
     }
 
     private void Update()
