@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4532749128122259384}
   - component: {fileID: 5003985753548574737}
   - component: {fileID: 6831732015140720507}
+  - component: {fileID: -4465139128087642755}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -149,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858c6f44034fb202092f3f852ee0f3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2773333687326106965}
   speedMultiplier: 1
 --- !u!114 &6831732015140720507
 MonoBehaviour:
@@ -165,3 +165,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRotateSpeed: 30
   minRotateSpeed: 20
+  randomStartRotation: 1
+--- !u!114 &-4465139128087642755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532749128122259383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b32aa1a90a87643bedcde5f70a2253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

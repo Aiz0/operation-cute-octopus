@@ -841,7 +841,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3333335
+  orthographic size: 5.333988
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -869,7 +869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615335748
 GameObject:
@@ -1026,7 +1026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.3333335, z: 0}
+  m_LocalPosition: {x: 0, y: 7.333988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1193,7 +1193,7 @@ RectTransform:
   - {fileID: 615335749}
   - {fileID: 1068203212}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1372,7 +1372,7 @@ MonoBehaviour:
   rockObstacles:
   - {fileID: 5522873742524015300, guid: 07377ffc586252c4baa44038f2bba741, type: 3}
   - {fileID: 825405336516130185, guid: a78ce32676d1d644181830ddb782d8c1, type: 3}
-  riskToSpawnRock: 10
+  riskToSpawnRock: 20
   allowOtherSpawns: 1
   player: {fileID: 243286401}
   gameOverPanel: {fileID: 375852847}
@@ -1812,7 +1812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6824043117476076021, guid: d44a5c901f220dd41a22541718e3ed76, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6824043117476076021, guid: d44a5c901f220dd41a22541718e3ed76, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2530,9 +2530,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3202775878405490032, guid: 8a157c880c309624f91214010574d217, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3202775878405490034, guid: 8a157c880c309624f91214010574d217, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3202775878405490034, guid: 8a157c880c309624f91214010574d217, type: 3}
       propertyPath: m_LocalPosition.x

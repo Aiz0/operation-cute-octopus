@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -8190822955015629676}
   - component: {fileID: 1160207065962537187}
   - component: {fileID: 7763971524148018056}
+  - component: {fileID: 9209051933400584256}
   m_Layer: 0
   m_Name: "Sj\xF6borre"
   m_TagString: Obstacle
@@ -150,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858c6f44034fb202092f3f852ee0f3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1001024877554892205}
   speedMultiplier: 1
 --- !u!114 &-8190822955015629676
 MonoBehaviour:
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
+  rock: 0
 --- !u!114 &1160207065962537187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +195,15 @@ MonoBehaviour:
   maxRotateSpeed: 40
   minRotateSpeed: 20
   randomStartRotation: 1
+--- !u!114 &9209051933400584256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763436113361802842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b32aa1a90a87643bedcde5f70a2253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
