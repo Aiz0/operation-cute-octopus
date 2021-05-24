@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &62139311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6824043117476076020, guid: d44a5c901f220dd41a22541718e3ed76, type: 3}
+  m_PrefabInstance: {fileID: 1447115413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &148856212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1523,12 +1534,12 @@ MonoBehaviour:
   increaseSpeedBy: 0.05
   maxInk: 5
   reloadTime: 5
+  newHighScoreText: {fileID: 62139311}
   scoreText: {fileID: 1832147447}
   starText: {fileID: 1175234384}
   inkText: {fileID: 334854165}
+  healthText: {fileID: 1399010773}
   reloadImage: {fileID: 1068203210}
-  finalScore: 0
-  finalStars: 0
 --- !u!1 &1175234383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,8 +1894,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -202.39, y: -110}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: 319.27, y: 411.11}
+  m_SizeDelta: {x: 161.45, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399010773
 MonoBehaviour:
@@ -1899,7 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1909,17 +1920,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: dfccab3d48692234cae539e957030973, type: 3}
     m_FontSize: 60
-    m_FontStyle: 0
+    m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 1
 --- !u!222 &1399010774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2009,11 +2020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6824043117476076021, guid: d44a5c901f220dd41a22541718e3ed76, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -458
+      value: -442
       objectReference: {fileID: 0}
     - target: {fileID: 6824043117476076021, guid: d44a5c901f220dd41a22541718e3ed76, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1050
+      value: 1059
       objectReference: {fileID: 0}
     - target: {fileID: 6824043117476076021, guid: d44a5c901f220dd41a22541718e3ed76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
