@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 65fc9e27d6f16407b98687417c8f3f4b
+guid: eeb7e57e9c64f96428851e6205215d6a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8964821807719809950
-    second: AnimatiPufferfish_puffanimation(512x)_0
+      213: 5241267880653539646
+    second: Pufferfish_SwimAnimationx512_0
   - first:
-      213: 5592653597743913053
-    second: AnimatiPufferfish_puffanimation(512x)_1
+      213: 7041205740283350315
+    second: Pufferfish_SwimAnimationx512_1
   - first:
-      213: -3002892726090423048
-    second: AnimatiPufferfish_puffanimation(512x)_2
+      213: 7635982771437923494
+    second: Pufferfish_SwimAnimationx512_2
   - first:
-      213: -2699219053073736055
-    second: AnimatiPufferfish_puffanimation(512x)_3
+      213: -132613075026541246
+    second: Pufferfish_SwimAnimationx512_3
   - first:
-      213: -2021543008707929358
-    second: AnimatiPufferfish_puffanimation(512x)_4
+      213: 3534331206951544518
+    second: Pufferfish_SwimAnimationx512_4
   - first:
-      213: -1849736936031243172
-    second: AnimatiPufferfish_puffanimation(512x)_5
+      213: -4209346498223069695
+    second: Pufferfish_SwimAnimationx512_5
   - first:
-      213: 2006409733961004780
-    second: AnimatiPufferfish_puffanimation(512x)_6
+      213: 8573456750098678323
+    second: Pufferfish_SwimAnimationx512_6
   - first:
-      213: 2311894333831273179
-    second: AnimatiPufferfish_puffanimation(512x)_7
+      213: -3018800809890324596
+    second: Pufferfish_SwimAnimationx512_7
   - first:
-      213: 1463419795911142247
-    second: AnimatiPufferfish_puffanimation(512x)_8
+      213: 440239113089700098
+    second: Pufferfish_SwimAnimationx512_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,6 +115,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -154,175 +166,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_0
+      name: Pufferfish_SwimAnimationx512_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9380dbbfe1796c70800000000000000
-      internalID: 8964821807719809950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d581655e0d81d9d40800000000000000
-      internalID: 5592653597743913053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_2
-      rect:
-        serializedVersion: 2
-        x: 1021
-        y: 1021
-        width: 512
-        height: 512
-      alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f4a6c2c9f49356d0800000000000000
-      internalID: -3002892726090423048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 512
-        height: 512
-      alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98ed29282927a8ad0800000000000000
-      internalID: -2699219053073736055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 512
-        height: 512
-      alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fa1acb185902f3e0800000000000000
-      internalID: -2021543008707929358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_5
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 512
-        height: 512
-      alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5430f79e0a6456e0800000000000000
-      internalID: -1849736936031243172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_6
-      rect:
-        serializedVersion: 2
-        x: 3
         y: 0
         width: 512
         height: 512
       alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
+      pivot: {x: 0.40245867, y: 0.5154013}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce6b1aac50338db10800000000000000
-      internalID: 2006409733961004780
+      spriteID: e39c4073e59bcb840800000000000000
+      internalID: 5241267880653539646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_7
+      name: Pufferfish_SwimAnimationx512_1
       rect:
         serializedVersion: 2
-        x: 512
+        x: 513
         y: 0
         width: 512
         height: 512
       alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
+      pivot: {x: 0.37935686, y: 0.5154013}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bda504ec5af751020800000000000000
-      internalID: 2311894333831273179
+      spriteID: b2dc70c905367b160800000000000000
+      internalID: 7041205740283350315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatiPufferfish_puffanimation(512x)_8
+      name: Pufferfish_SwimAnimationx512_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -330,14 +216,140 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 9
-      pivot: {x: 0.3599539, y: 0.5150886}
+      pivot: {x: 0.38705754, y: 0.5179682}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76bee840d8c1f4410800000000000000
-      internalID: 1463419795911142247
+      spriteID: 6ac6f8a9fd578f960800000000000000
+      internalID: 7635982771437923494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pufferfish_SwimAnimationx512_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.36908937, y: 0.5128344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24588726c1dd82ef0800000000000000
+      internalID: -132613075026541246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pufferfish_SwimAnimationx512_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.35882187, y: 0.5128344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6acecc1877c0130800000000000000
+      internalID: 3534331206951544518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pufferfish_SwimAnimationx512_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.3665228, y: 0.5128344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10621e479a56595c0800000000000000
+      internalID: -4209346498223069695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pufferfish_SwimAnimationx512_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.38705778, y: 0.5179682}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3328ec67d790bf670800000000000000
+      internalID: 8573456750098678323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pufferfish_SwimAnimationx512_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.37935734, y: 0.5128344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f53de58a01b16d0800000000000000
+      internalID: -3018800809890324596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pufferfish_SwimAnimationx512_8
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.39989185, y: 0.5128344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201d1ff042b0c1600800000000000000
+      internalID: 440239113089700098
       vertices: []
       indices: 
       edges: []

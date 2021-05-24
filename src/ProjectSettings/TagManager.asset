@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - ShopButton
   - Enemy
+  - Rock
   layers:
   - Default
   - TransparentFX
