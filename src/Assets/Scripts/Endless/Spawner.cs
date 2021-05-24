@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private GameObject[] patterns;
-
     private GameController gameController;
     private int lastPattern;
 
@@ -23,7 +22,6 @@ public class Spawner : MonoBehaviour
 
             GameObject pattern = GetRandomPattern();
             SpawnObstacles(pattern);
-            
             gameController.IncreaseSpeed();
         }
     }
