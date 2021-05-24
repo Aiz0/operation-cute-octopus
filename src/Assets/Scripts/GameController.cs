@@ -66,8 +66,6 @@ public class GameController : MonoBehaviour
     private bool isReloading = false;
     private bool gameRunning = false;
 
-    private bool dead = false;
-
     void Awake(){
         instance = this;
         scoreInterval = distanceBetweenPatterns / speed;
@@ -92,16 +90,11 @@ public class GameController : MonoBehaviour
                 isReloading = false;
             }
         }
-        if(dead == true)
-        {
-            player.transform.Rotate(new Vector3(0,0,0.65f));
-        }
     }
 
     private void StartGame() {
         gameRunning = true;
         gameOverPanel.SetActive(false);
-        dead = false;
 
         SetScore(0);
         SetStars(0);
@@ -247,7 +240,6 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(true);
         Animator animator = player.GetComponent<Animator>();
         animator.SetBool("Dead", true);
-        dead = true;
         Destroy(player,1);
         finalScore = getScore();
         finalStars = getStars();
