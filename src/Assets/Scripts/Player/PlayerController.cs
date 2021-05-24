@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private float currentRotation;
     private float targetRotation;
 
+
+
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
         if (AttitudeSensor.current != null) {
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
     void Update() {
         ClampPosition();
     }
+
+  
 
     void FixedUpdate() {
         float direction;
