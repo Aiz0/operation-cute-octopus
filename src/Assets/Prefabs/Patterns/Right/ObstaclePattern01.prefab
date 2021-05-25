@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowSpawnRock: 0
-  allowSpawnOther: 1
 --- !u!1 &4657513735474946634
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,4 +120,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowSpawnRock: 1
-  allowSpawnOther: 1
