@@ -13,12 +13,11 @@ public class PlayerColiderAnimation : MonoBehaviour
 
     private void Update()   
     {
-        if(animator.GetBool("Dead") == true)
+        if(animator.GetBool("isDead") == true)
         {
             transform.Rotate(new Vector3(0, 0, 0.65f));
         }
     }
-
     public void SetColliderForSprite(int spriteNum)
     {
         colliders[currentColliderIndex].enabled = false;
