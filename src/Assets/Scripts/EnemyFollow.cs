@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class EnemyFollow : MonoBehaviour
 {
     [SerializeField]
@@ -15,12 +16,16 @@ public class EnemyFollow : MonoBehaviour
     private GameController gameController;
     private Rigidbody2D rb;
     private GameObject target; //the enemy's target
+    private Animator animator;
 
     private void Awake()
     {
         gameController = GameController.instance;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player");
+
+        animator = GetComponent<Animator>();
+        animator.SetBool("Puff", false);
     }
 
     private void FixedUpdate()
@@ -31,6 +36,8 @@ public class EnemyFollow : MonoBehaviour
             if (Vector2.Distance(transform.position, target.transform.position) <= ActivationDistance)
             {
                 MoveTowardTarget();
+                // Activate puff thingy
+                animator.SetBool("Puff", true);
             }
         }
     }
