@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         ClampPosition();
     }
 
-  
+
 
     void FixedUpdate() {
         float direction;
@@ -46,8 +46,15 @@ public class PlayerController : MonoBehaviour
         }else{
             direction = axis.x;
         }
-        Move(direction);
-        Rotate(direction);
+        if(GameController.instance.IsRunning())
+        {
+            Move(direction);
+            Rotate(direction);
+        }
+        else
+        {
+            rb2D.velocity = new Vector2(0,0);
+        }
     }
 
     public void OnMove(InputValue input){
