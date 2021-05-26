@@ -101,6 +101,24 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    public void BuySkin2Button()
+    {
+        if (PlayerPrefs.GetString("SkinList").Contains("2"))
+        {
+            PlayerPrefs.SetInt("Skins", 2);
+            CheckCurrentSkin();
+        }
+
+        else if (PlayerPrefs.GetInt("TotalStars") >= skinCost)
+        {
+            PlayerPrefs.SetString("SkinList", PlayerPrefs.GetString("SkinList") + "2");
+            PlayerPrefs.SetInt("Skins", 2);
+            PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - skinCost);
+            CheckCurrentSkin();
+            UpdateTotalStars();
+        }
+    }
+
     // BUY STATS
     public void UpdateStatsButton()
     {
