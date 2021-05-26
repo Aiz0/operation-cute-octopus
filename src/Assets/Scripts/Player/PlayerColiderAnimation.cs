@@ -11,11 +11,11 @@ public class PlayerColiderAnimation : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    private void Update()   
+    private void FixedUpdate()   
     {
         if(animator.GetBool("isDead") == true)
         {
-            transform.Rotate(new Vector3(0, 0, 0.65f));
+            transform.Rotate(new Vector3(0, 0, 4f));
         }
     }
     public void SetColliderForSprite(int spriteNum)
