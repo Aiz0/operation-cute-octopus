@@ -204,7 +204,6 @@ public class GameController : MonoBehaviour
         else
         {
             SetHealth(PlayerPrefs.GetInt("Health"));
-            healthText.text = health.ToString();
         }
     }
 
@@ -222,16 +221,15 @@ public class GameController : MonoBehaviour
         }
     }
     private void SetHealth(int value) {
-
         health = value;
         if (health <= 0) {
             EndGame();
         }
+        healthText.text = health.ToString();
     }
 
     public void DecrementHealth(int value) {
         SetHealth(health - value);
-        healthText.text = health.ToString();
     }
 
     private void SetInk(int value) {
