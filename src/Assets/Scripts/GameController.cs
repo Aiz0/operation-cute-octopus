@@ -225,7 +225,11 @@ public class GameController : MonoBehaviour
     private void SetHealth(int value) {
         health = value;
         if (health <= 0) {
-            EndGame();
+            health = 0;
+            if (IsRunning())
+            {
+                EndGame();
+            }
         }
         healthText.text = health.ToString();
     }
