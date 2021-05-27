@@ -2,26 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class EnemyFollow : MonoBehaviour
 {
+    [SerializeField]
+    private float speedMultiplier = 1f; //move speed
+    [SerializeField]
+    private float targetingSpeedMultiplier;
+    [SerializeField]
+    private float ActivationDistance;
 
-    public Transform target; //the enemy's target
-    public float moveSpeed = 5f; //move speed
+    private GameController gameController;
+    private Rigidbody2D rb;
+    private GameObject target; //the enemy's target
+    private Animator animator;
 
-
-    void Start()
+    private void Awake()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        gameController = GameController.instance;
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindWithTag("Player");
+
+        animator = GetComponent<Animator>();
+        animator.SetBool("Puff", false);
     }
-    void Update()
+
+    private void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) < 5)
+        rb.velocity = gameController.GetDirection() * gameController.GetSpeed() * speedMultiplier;
+        if (target != null)
         {
-            Vector3 targetDir = target.transform.position - transform.position;
-            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90f;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 180);
-            transform.Translate(Vector3.up * Time.deltaTime * moveSpeed);
+            if (Vector2.Distance(transform.position, target.transform.position) <= ActivationDistance)
+            {
+                MoveTowardTarget();
+                // Activate puff thingy
+                animator.SetBool("Puff", true);
+            }
         }
+    }
+
+    private void LateUpdate()
+    {
+        RotateWithVelocity();
+    }
+
+    private void MoveTowardTarget()
+    {
+            Vector2 targetDir = (target.transform.position - transform.position).normalized;
+            rb.velocity += targetDir * gameController.GetSpeed() * targetingSpeedMultiplier;
+    }
+
+    private void RotateWithVelocity()
+    {
+        transform.right = rb.velocity.normalized * -1;
     }
 }

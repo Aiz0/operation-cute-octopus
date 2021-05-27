@@ -36,13 +36,17 @@ public class GameController : MonoBehaviour
     private float maxSpeed = 15;
     [SerializeField]
     private float increaseSpeedBy;
+
     [SerializeField]
     private int maxInk = 1;
+
     [SerializeField]
     private float reloadTime;
 
     private float scoreInterval;
 
+    [SerializeField]
+    private Text newHighScoreText;
     [SerializeField]
     private Text scoreText;
     [SerializeField]
@@ -50,21 +54,25 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text inkText;
     [SerializeField]
+    private Text healthText;
+    [SerializeField]
     private Image reloadImage;
 
-    public int finalScore;
-    public int finalStars;
+    private int finalScore;
+    private int finalStars;
 
     private Score scores;
 
     private int score;
     private int stars;
-    private int health = 1;
+    private int health;
+
     // ink that can be fired
     private int ink = 1;
 
     private bool isReloading = false;
     private bool gameRunning = false;
+
 
     void Awake(){
         instance = this;
@@ -96,9 +104,11 @@ public class GameController : MonoBehaviour
         gameRunning = true;
         gameOverPanel.SetActive(false);
 
+        UpdateHealth();
+        UpdateInk();
+
         SetScore(0);
         SetStars(0);
-        SetInk(maxInk);
 
         StartCoroutine(ScoreLoop());
     }
@@ -115,16 +125,11 @@ public class GameController : MonoBehaviour
     private void SetScore(int value) {
         score = value;
         scoreText.text = score.ToString();
-    }
 
-    public int getScore()
-    {
-        return score;
-    }
-
-    public int getStars()
-    {
-        return stars;
+        if(score > PlayerPrefs.GetInt("HighScore"))
+        {
+            newHighScoreText.gameObject.SetActive(true);
+        }
     }
 
     public Vector2 GetDirection()
@@ -183,18 +188,44 @@ public class GameController : MonoBehaviour
 
     private void SetStars(int value) {
         stars = value;
-        starText.text = stars.ToString();
+        starText.text = (stars + PlayerPrefs.GetInt("TotalStars")).ToString();
     }
 
     public void IncrementStars(int value) {
         SetStars(stars + value);
     }
 
+    public void UpdateHealth()
+    {
+        if(PlayerPrefs.GetInt("Health") < 1)
+        {
+            PlayerPrefs.SetInt("Health", 1);
+        }
+        else
+        {
+            SetHealth(PlayerPrefs.GetInt("Health"));
+        }
+    }
+
+    public void UpdateInk()
+    {
+        inkText.text = ink.ToString();
+
+        if (PlayerPrefs.GetInt("Ink") < 1)
+        {
+            PlayerPrefs.SetInt("Ink", 1);
+        }
+        else
+        {
+            SetInk(PlayerPrefs.GetInt("Ink"));
+        }
+    }
     private void SetHealth(int value) {
         health = value;
-        if(health <= 0) {
+        if (health <= 0) {
             EndGame();
         }
+        healthText.text = health.ToString();
     }
 
     public void DecrementHealth(int value) {
@@ -226,7 +257,7 @@ public class GameController : MonoBehaviour
     private IEnumerator Reload() {
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
-        SetInk(maxInk);
+        UpdateInk();
         isReloading = false;
     }
 
@@ -239,17 +270,14 @@ public class GameController : MonoBehaviour
         gameRunning = false;
         gameOverPanel.SetActive(true);
         Animator animator = player.GetComponent<Animator>();
-        animator.SetBool("Dead", true);
+        animator.SetBool("isDead", true);
         Destroy(player,1);
-        finalScore = getScore();
-        finalStars = getStars();
-        print(finalScore);
+        finalScore = score;
+        finalStars = stars;
 
         PlayerPrefs.SetInt("Score", finalScore);
         PlayerPrefs.SetInt("Stars",finalStars);
         PlayerPrefs.Save();
-
-
         scores.UpdateHighScore();
         scores.UpdateTotalStars();
         StartCoroutine(SlowDown());

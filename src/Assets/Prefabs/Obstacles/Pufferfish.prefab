@@ -16,8 +16,6 @@ GameObject:
   - component: {fileID: 8253854040324406355}
   - component: {fileID: 6030149120283425334}
   - component: {fileID: -7618879733033368607}
-  - component: {fileID: 138983760392449868}
-  - component: {fileID: 8432477970408579653}
   - component: {fileID: 6402644208035359881}
   m_Layer: 0
   m_Name: Pufferfish
@@ -187,33 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
---- !u!114 &138983760392449868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4104930677290746198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 858c6f44034fb202092f3f852ee0f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 1.5
---- !u!114 &8432477970408579653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4104930677290746198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902a77844a06547e387f1d7285b48229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puffAt: 3
-  angle: 0
 --- !u!114 &6402644208035359881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,5 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb29ab6dd6e43cb40a4ba04d03db52c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3202775878405490034, guid: 8a157c880c309624f91214010574d217, type: 3}
-  moveSpeed: 3
+  speedMultiplier: 1.5
+  targetingSpeedMultiplier: 0.8
+  ActivationDistance: 5

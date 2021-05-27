@@ -6,8 +6,6 @@ public class ScreenShakeController : MonoBehaviour
 {
     public static ScreenShakeController instance;
 
-    private Transform transform;
-
     private float shakeDuration = 0f;
 
     [SerializeField]
@@ -21,14 +19,6 @@ public class ScreenShakeController : MonoBehaviour
     private void Start()
     {
         instance = this;
-    }
-
-    private void Awake()
-    {
-        if (transform == null)
-        {
-            transform = GetComponent(typeof(Transform)) as Transform;
-        }
     }
 
     private void OnEnable()
@@ -52,8 +42,6 @@ public class ScreenShakeController : MonoBehaviour
 
     public void TriggerShake(float shakeTime)
     {
-      
         shakeDuration = shakeTime;
-
     }
 }

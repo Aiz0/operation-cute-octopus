@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private float currentRotation;
     private float targetRotation;
 
+
+
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
         if (AttitudeSensor.current != null) {
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
         ClampPosition();
     }
 
+
+
     void FixedUpdate() {
         float direction;
         if(axis.x == 0){
@@ -42,8 +46,15 @@ public class PlayerController : MonoBehaviour
         }else{
             direction = axis.x;
         }
-        Move(direction);
-        Rotate(direction);
+        if(GameController.instance.IsRunning())
+        {
+            Move(direction);
+            Rotate(direction);
+        }
+        else
+        {
+            rb2D.velocity = new Vector2(0,0);
+        }
     }
 
     public void OnMove(InputValue input){

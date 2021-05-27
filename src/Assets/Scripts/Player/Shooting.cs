@@ -20,7 +20,10 @@ public class Shooting : MonoBehaviour
 
     private void OnFire(){
         Vector2 position = Input.mousePosition;
-        Fire(position);
+        if(gameController.IsRunning())
+        {
+            Fire(position);
+        }
     }
 
     private void Fire(Vector2 screenPosition) {
