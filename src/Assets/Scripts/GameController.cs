@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float maxSpeed = 15;
     [SerializeField]
+    private float gameOverSpeed = 0.5f;
+    [SerializeField]
     private float increaseSpeedBy;
 
     [SerializeField]
@@ -223,7 +225,11 @@ public class GameController : MonoBehaviour
     private void SetHealth(int value) {
         health = value;
         if (health <= 0) {
-            EndGame();
+            health = 0;
+            if (IsRunning())
+            {
+                EndGame();
+            }
         }
         healthText.text = health.ToString();
     }
@@ -285,12 +291,12 @@ public class GameController : MonoBehaviour
 
     private IEnumerator SlowDown()
     {
-        while(speed > 0.1f)
+        while(speed > gameOverSpeed)
         {
             yield return new WaitForSeconds(0.1f);
             speed *= 0.8f;
         }
-        speed = 0;
+        speed = gameOverSpeed;
     }
 
     public void IncreaseSpeed()

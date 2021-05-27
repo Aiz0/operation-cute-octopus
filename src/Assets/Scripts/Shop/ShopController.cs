@@ -11,7 +11,7 @@ public class ShopController : MonoBehaviour
     private Text currentHearts, currentInk;
 
     [SerializeField]
-    private Text[] totalStarsText;
+    private Text totalStarsText;
     [SerializeField]
     private Button[] skinButton;
     [SerializeField]
@@ -43,10 +43,7 @@ public class ShopController : MonoBehaviour
     // UPDATE TOTAL STARS
     public void UpdateTotalStars()
     {
-        for(int i = 0; i < totalStarsText.Length; i++)
-        {
-            totalStarsText[i].text = PlayerPrefs.GetInt("TotalStars").ToString();
-        }
+        totalStarsText.text = PlayerPrefs.GetInt("TotalStars").ToString();
     }
 
     // BUY SKINS
