@@ -99,10 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 1
   rb: {fileID: 7118156686697850794}
   effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
-  tagToIgnore: Player
 --- !u!50 &7118156686697850794
 Rigidbody2D:
   serializedVersion: 4

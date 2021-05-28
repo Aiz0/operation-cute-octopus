@@ -21,7 +21,7 @@ public class MenuMusic : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("main"))
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Shop"))
         {
             Destroy(gameObject);
         }
