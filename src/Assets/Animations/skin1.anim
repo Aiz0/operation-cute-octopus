@@ -31,17 +31,17 @@ AnimationClip:
       value: {fileID: 21300000, guid: 8935fc4ed49ce0140a4087ded7d562d6, type: 3}
     - time: 0.41666666
       value: {fileID: 21300000, guid: 8e5f3129aa3917a46adb23e83789da96, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: ae1239ec98a714a4199a81f33b4ee930, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: 602ab35690fe76e4f84664788f339e0f, type: 3}
+      value: {fileID: 21300000, guid: ae1239ec98a714a4199a81f33b4ee930, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: f0a7ee56c26056943851964af9c68f2a, type: 3}
+      value: {fileID: 21300000, guid: 602ab35690fe76e4f84664788f339e0f, type: 3}
     - time: 0.75
-      value: {fileID: 21300000, guid: 3b3429035d28fd944ab9b4d8743047b1, type: 3}
+      value: {fileID: 21300000, guid: f0a7ee56c26056943851964af9c68f2a, type: 3}
     - time: 0.8333333
-      value: {fileID: 21300000, guid: 5e78dbc0ed0420944b90831b2faced42, type: 3}
+      value: {fileID: 21300000, guid: 3b3429035d28fd944ab9b4d8743047b1, type: 3}
     - time: 0.9166667
+      value: {fileID: 21300000, guid: 5e78dbc0ed0420944b90831b2faced42, type: 3}
+    - time: 1
       value: {fileID: 21300000, guid: a881d6f17ae302940a2931b9bf87806c, type: 3}
     attribute: m_Sprite
     path: 
@@ -79,7 +79,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 1.0833334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -98,4 +98,88 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 0.25
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 3
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 4
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 5
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 7
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 8
+    messageOptions: 0
+  - time: 0.75
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 9
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 10
+    messageOptions: 0
+  - time: 0.9166667
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 11
+    messageOptions: 0
+  - time: 1
+    functionName: SetColliderForSprite
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 12
+    messageOptions: 0
