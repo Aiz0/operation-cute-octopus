@@ -9,6 +9,9 @@ public class PlayerColiderAnimation : MonoBehaviour
     private int currentColliderIndex = 0;
 
     [SerializeField]
+    private CapsuleCollider2D squidCollider;
+
+    [SerializeField]
     private Animator animator;
 
     private void FixedUpdate()   
@@ -20,8 +23,17 @@ public class PlayerColiderAnimation : MonoBehaviour
     }
     public void SetColliderForSprite(int spriteNum)
     {
-        colliders[currentColliderIndex].enabled = false;
-        currentColliderIndex = spriteNum;
-        colliders[currentColliderIndex].enabled = true;
+        if(animator.GetInteger("Change") == 2)
+        {
+            squidCollider.enabled = true;
+        } 
+        else
+        {
+            squidCollider.enabled = false;
+            colliders[currentColliderIndex].enabled = false;
+            currentColliderIndex = spriteNum;
+            colliders[currentColliderIndex].enabled = true;
+        }
+        
     }
 }
