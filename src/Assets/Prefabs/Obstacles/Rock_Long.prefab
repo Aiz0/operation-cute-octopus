@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8988567594104420167}
   m_Layer: 0
   m_Name: Rock_Long
-  m_TagString: Obstacle
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,5 +306,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
-  other: {fileID: 825405336516130185}
   rock: 1

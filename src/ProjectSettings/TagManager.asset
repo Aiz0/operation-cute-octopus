@@ -9,6 +9,8 @@ TagManager:
   - Obstacle
   - Enemy
   - GameMusic
+  - Rock
+  - EffectSound
   layers:
   - Default
   - TransparentFX

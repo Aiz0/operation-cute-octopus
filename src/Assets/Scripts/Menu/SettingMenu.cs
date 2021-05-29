@@ -15,16 +15,32 @@ public class SettingMenu : MonoBehaviour
 
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundPref = "BackgroundPref";
+    private static readonly string EffectPref = "EffectPref";
+
     private int firstPlayInt;
+
     public Slider backgroundSlider;
+    public Slider effectSlider;
+
     private float backgroundFloat;
-    public GameObject objectMusic;
-    public AudioSource backgroundAudio;
+    private float effectFloat;
+
+    [SerializeField]
+    private GameObject objectMusic;
+    [SerializeField]
+    private GameObject effectSoundObject;
+    [SerializeField ]
+    private AudioSource backgroundAudio;
+    [SerializeField]
+    private AudioSource effectAudio;
 
     private void Start()
     {
         objectMusic = GameObject.FindWithTag("GameMusic");
         backgroundAudio = objectMusic.GetComponent<AudioSource>();
+
+        effectSoundObject = GameObject.FindWithTag("EffectSound");
+        effectAudio = effectSoundObject.GetComponent<AudioSource>();
 
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
@@ -33,19 +49,25 @@ public class SettingMenu : MonoBehaviour
             backgroundFloat = .25f;
             backgroundSlider.value = backgroundFloat;
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
+            effectFloat = .75f;
+            effectSlider.value = effectFloat;
+            PlayerPrefs.SetFloat(EffectPref, effectFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
 
         }
         else
         {
             backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
+            effectFloat = PlayerPrefs.GetFloat(EffectPref);
             backgroundSlider.value = backgroundFloat;
+            effectSlider.value = effectFloat;
         }
     }
 
     public void SaveSoundSettings()
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
+        PlayerPrefs.SetFloat(EffectPref, effectSlider.value);
     }
 
     private void OnApplicationFocus(bool focus)
@@ -59,5 +81,6 @@ public class SettingMenu : MonoBehaviour
     public void UpdateSound()
     {
         backgroundAudio.volume = backgroundSlider.value;
+        effectAudio.volume = effectSlider.value;
     }
 }

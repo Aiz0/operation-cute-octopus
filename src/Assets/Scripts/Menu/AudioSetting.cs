@@ -5,8 +5,16 @@ using UnityEngine;
 public class AudioSetting : MonoBehaviour
 {
     private static readonly string BackgroundPref = "BackgroundPref";
+    private static readonly string EffectPref = "EffectPref";
+
     private float backgroundFloat;
-    public AudioSource backgroundAudio;
+    private float effectFloat;
+
+    [SerializeField]
+    private AudioSource backgroundAudio;
+    [SerializeField]
+    private AudioSource effectAudio;
+
     private void Awake()
     {
         ContinueSettings();
@@ -17,5 +25,9 @@ public class AudioSetting : MonoBehaviour
         backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
 
         backgroundAudio.volume = backgroundFloat;
+
+        effectFloat = PlayerPrefs.GetFloat(EffectPref);
+
+        effectAudio.volume = effectFloat;
     }
 }
