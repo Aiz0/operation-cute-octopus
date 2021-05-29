@@ -37,8 +37,7 @@ public class Shooting : MonoBehaviour
                 projectile,
                 transform.position,
                 Quaternion.Euler(0, 0, GetFireAngle(position))
-             );
-        SoundManager.soundFx.PlayInkSound();
+        );
     }
 
     private float GetFireAngle(Vector2 position) {
