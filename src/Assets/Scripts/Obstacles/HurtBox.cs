@@ -18,7 +18,8 @@ public class HurtBox : MonoBehaviour
             }            
             ScreenShakeController.instance.TriggerShake(0.5f);
             GameController.instance.DecrementHealth(damage);
-           if(!rock) Destroy(gameObject); // Hindra Stenarna att förstöras vid kontakt med spelaren
+            SoundManager.soundFx.PlayDestroySound();
+            if (!rock) Destroy(gameObject); // Hindra Stenarna att förstöras vid kontakt med spelaren
         }
     }   
 }
