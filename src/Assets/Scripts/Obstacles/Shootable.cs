@@ -16,6 +16,7 @@ public class Shootable : MonoBehaviour
                 ScreenShakeController.instance.TriggerShake(0.1f);
             }
             Destroy(gameObject);
+            SoundManager.soundFx.PlayDestroySound();
         }
     }
 }
