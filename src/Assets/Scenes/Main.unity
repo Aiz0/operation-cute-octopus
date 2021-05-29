@@ -1256,7 +1256,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3341646
+  orthographic size: 5.3333335
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1431,7 +1431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.3341646, z: 0}
+  m_LocalPosition: {x: 0, y: 7.3333335, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7209,7 +7209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.299988}
+  m_AnchoredPosition: {x: 0, y: -4.2999268}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1175234388
@@ -8581,12 +8581,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3202775878405490035, guid: 8a157c880c309624f91214010574d217, type: 3}
+      propertyPath: m_Size.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202775878405490035, guid: 8a157c880c309624f91214010574d217, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202775878405490035, guid: 8a157c880c309624f91214010574d217, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3202775878405490035, guid: 8a157c880c309624f91214010574d217, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3202775878405490038, guid: 8a157c880c309624f91214010574d217, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -8652,6 +8660,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 243286401}
+    - target: {fileID: 8606619089613754830, guid: 8a157c880c309624f91214010574d217, type: 3}
+      propertyPath: amountOfSkins
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a157c880c309624f91214010574d217, type: 3}
 --- !u!4 &3202775878162236658 stripped
