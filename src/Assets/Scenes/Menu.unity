@@ -1102,7 +1102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundAudio: {fileID: 1846721015}
-  effectAudio: {fileID: 1415906872}
+  effectAudio:
+  - {fileID: 1415906872}
+  - {fileID: 1941319120}
 --- !u!1 &1403425442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,9 +1634,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: e213513cae738584f90b1dab45a57c5e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 844a947e1d7f8c3408461386a6fe544c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.285
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1811,7 +1813,7 @@ GameObject:
   - component: {fileID: 1941319120}
   m_Layer: 0
   m_Name: ShopButton
-  m_TagString: Untagged
+  m_TagString: EffectSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
