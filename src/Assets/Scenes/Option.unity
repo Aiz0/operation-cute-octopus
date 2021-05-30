@@ -750,7 +750,8 @@ MonoBehaviour:
   objectMusic: {fileID: 0}
   effectSoundObject: {fileID: 303739809}
   backgroundAudio: {fileID: 0}
-  effectAudio: {fileID: 303739810}
+  effectAudio:
+  - {fileID: 303739810}
 --- !u!1 &631856310
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,25 +32,25 @@ public class SettingMenu : MonoBehaviour
     [SerializeField ]
     private AudioSource backgroundAudio;
     [SerializeField]
-    private AudioSource effectAudio;
+    private AudioSource[] effectAudio;
 
     private void Start()
     {
         objectMusic = GameObject.FindWithTag("GameMusic");
         backgroundAudio = objectMusic.GetComponent<AudioSource>();
 
-        effectSoundObject = GameObject.FindWithTag("EffectSound");
-        effectAudio = effectSoundObject.GetComponent<AudioSource>();
+        //effectSoundObject = GameObject.FindWithTag("EffectSound");
+        //effectAudio = effectSoundObject.GetComponent<AudioSource[]>();
 
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
         if(firstPlayInt == 0)
         {
-            backgroundFloat = .25f;
+            backgroundFloat = 1f;
+            effectFloat = 1f;
             backgroundSlider.value = backgroundFloat;
-            PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
-            effectFloat = .75f;
             effectSlider.value = effectFloat;
+            PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(EffectPref, effectFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
 
@@ -81,6 +81,10 @@ public class SettingMenu : MonoBehaviour
     public void UpdateSound()
     {
         backgroundAudio.volume = backgroundSlider.value;
-        effectAudio.volume = effectSlider.value;
+        for (int i = 0; i < effectAudio.Length; i++)
+        {
+            effectAudio[i].volume = effectSlider.value;
+        }
+
     }
 }

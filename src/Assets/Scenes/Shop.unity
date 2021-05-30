@@ -4011,7 +4011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundAudio: {fileID: 1324320801}
-  effectAudio: {fileID: 1081924227}
+  effectAudio:
+  - {fileID: 1081924227}
 --- !u!4 &2018590617
 Transform:
   m_ObjectHideFlags: 0
