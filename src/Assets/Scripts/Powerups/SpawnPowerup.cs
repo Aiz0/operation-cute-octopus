@@ -6,14 +6,27 @@ public class SpawnPowerup : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] powerUps;
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float spawnChance;
+
+
     private void OnDestroy()
     {
-        Instantiate(GetRandomPowerUp(), transform.position, Quaternion.identity);
+        if (RandomSpawnPowerup()){
+            Instantiate(GetRandomPowerUp(), transform.position, Quaternion.identity);
+        }
+    }
+
+    private bool RandomSpawnPowerup()
+    {
+        float random = Random.Range(0f,1f);
+        return spawnChance >= random;
     }
 
     private GameObject GetRandomPowerUp()
     {
-        int random = Random.Range(0, powerUps.Length);
-        return powerUps[random];
+        int index = Random.Range(0, powerUps.Length);
+        return powerUps[index];
     }
 }
