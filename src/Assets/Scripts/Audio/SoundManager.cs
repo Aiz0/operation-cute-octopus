@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     private AudioClip[] scoreSound;
     private AudioClip[] starSounds;
     private AudioClip[] rocketEndSounds;
+    private AudioClip[] buttonSounds;
     private int randomNumber;
 
     void Start()
@@ -22,6 +23,7 @@ public class SoundManager : MonoBehaviour
         scoreSound = Resources.LoadAll<AudioClip>("ScoreSound");
         starSounds = Resources.LoadAll<AudioClip>("StarSounds");
         rocketEndSounds = Resources.LoadAll<AudioClip>("RocketEndSounds");
+        buttonSounds = Resources.LoadAll<AudioClip>("ButtonSounds");
     }
 
     public void PlayInkSound()
@@ -54,4 +56,9 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(rocketEndSounds[randomNumber]);
     }
 
+    public void PlayButtonSound()
+    {
+        int index = Random.Range(0, buttonSounds.Length);
+        audioSource.PlayOneShot(buttonSounds[index]);
+    }
 }
