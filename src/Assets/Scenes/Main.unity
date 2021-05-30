@@ -4229,6 +4229,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1399010773}
     - target: {fileID: 6147959962685509729, guid: 652d6e465e81b250eb53601260508007, type: 3}
+      propertyPath: reloadTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147959962685509729, guid: 652d6e465e81b250eb53601260508007, type: 3}
       propertyPath: drillObject
       value: 
       objectReference: {fileID: 629083739}
