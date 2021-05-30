@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6147959962223490044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6147959962685509730}
+  - component: {fileID: 6147959962685509729}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6147959962685509730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147959962223490044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6147959962685509729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147959962223490044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2681109d96f4ff2b9b92e666cf0e6f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  distanceBetweenPatterns: 5
+  baseObstacle: {fileID: 8763436113361802842, guid: 6c45c9343397744e09140a1e4a00f222, type: 3}
+  otherObstacles:
+  - {fileID: 4104930677290746198, guid: ecb07877366f5413687778096224ec3e, type: 3}
+  - {fileID: 4532749128122259383, guid: efab937f8e9c647009687d15d44c06c2, type: 3}
+  riskToSpawnOther: 10
+  rockObstacles:
+  - {fileID: 5522873742524015300, guid: 07377ffc586252c4baa44038f2bba741, type: 3}
+  - {fileID: 825405336516130185, guid: a78ce32676d1d644181830ddb782d8c1, type: 3}
+  riskToSpawnRock: 20
+  allowOtherSpawns: 1
+  player: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  direction: {x: 0, y: -1}
+  speed: 3
+  maxSpeed: 15
+  gameOverSpeed: 0.5
+  increaseSpeedBy: 0.05
+  maxInk: 5
+  reloadTime: 5
+  newHighScoreText: {fileID: 0}
+  scoreText: {fileID: 0}
+  starText: {fileID: 0}
+  inkText: {fileID: 0}
+  healthText: {fileID: 0}
+  reloadImage: {fileID: 0}
+  drillObject: {fileID: 0}
+  drillAnimator: {fileID: 0}
+  rocketObject: {fileID: 0}
+  playerSprite: {fileID: 0}
+  rocketParticles: {fileID: 0}
+  rocketParticlesDying: {fileID: 0}
+  rocketPowerUpTransitionParticles: {fileID: 0}
