@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameController : MonoBehaviour
 {
@@ -85,13 +86,19 @@ public class GameController : MonoBehaviour
     public GameObject rocketParticles;
     public GameObject rocketParticlesDying;
     public ParticleSystem rocketPowerUpTransitionParticles;
-
+    
     //Variabler som påverkar spelarens odödlighet efter mottagen skada
     private bool playerRecentlyHit = false;
     private float timeSinceLastHit;
     private int invincibilityFlashes = 10;
     private float flashIntervalTime = 0.1f;
     private float timeInvincible;
+
+    //AudioSources för musik
+    public AudioSource mainGameMusic;
+    public AudioSource lowHpGameMusic;
+    public AudioSource powerUpGameMusic;
+
 
     private int score;
     private int stars;
@@ -168,6 +175,14 @@ public class GameController : MonoBehaviour
 
         StartCoroutine(ScoreLoop());
         timeInvincible = flashIntervalTime * invincibilityFlashes * 2;
+        mainGameMusic.volume = 1;
+        mainGameMusic.Play();
+        lowHpGameMusic.Play();
+        powerUpGameMusic.Play();
+        mainGameMusic.volume = 1;
+        lowHpGameMusic.volume = 0;
+        powerUpGameMusic.volume = 0;
+
     }
 
     private IEnumerator ScoreLoop() {
@@ -307,9 +322,17 @@ public class GameController : MonoBehaviour
             if (health > 0)
             {
                 StartCoroutine(characterFlashOnHit());
+                if (health == 1)
+                {
+                    startLowHpMusic(true);
+
+                }
             }
+           
         }
     }
+
+    
 
     private void SetInk(int value) {
         ink = value;
@@ -353,14 +376,64 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void startPowerUpMusic(bool initiate)
+    {
+        if (health == 1)
+        {
+            mainGameMusic.volume = 0;
+            lowHpGameMusic.volume = 0.7f;
+            powerUpGameMusic.volume = 0.3f;
+        }
+        else
+        {
+            mainGameMusic.volume = 0;
+            lowHpGameMusic.volume = 0;
+            powerUpGameMusic.volume = 1;
+        }
+    }
+
+    public void endPowerUpMusic(bool initiate)
+    {
+        if (health == 1)
+        {
+            mainGameMusic.volume = 0;
+            lowHpGameMusic.volume = 1;
+            powerUpGameMusic.volume = 0;
+        }
+        else
+        {
+            mainGameMusic.volume = 1;
+            lowHpGameMusic.volume = 0;
+            powerUpGameMusic.volume = 0;
+        }
+    }
+
+    public void startLowHpMusic(bool initiate)
+    {
+        if (powerUpGameMusic.volume > 0)
+        {
+            mainGameMusic.volume = 0;
+            lowHpGameMusic.volume = 0.7f;
+            powerUpGameMusic.volume = 0.3f;
+        }
+        else
+        {
+            mainGameMusic.volume = 0;
+            lowHpGameMusic.volume = 1;
+            powerUpGameMusic.volume = 0;
+        }
+    }
+
 
     public void InitiateDrillPowerUp(bool initiate)
     {
         drillObject.SetActive(initiate);
         SetDrillPowerUp(maxDrill);
         drillAnimator.speed = 1;
+        startPowerUpMusic(true);
 
     }
+
 
     private void SetDrillPowerUp(int value)
     {
@@ -369,6 +442,7 @@ public class GameController : MonoBehaviour
         if (drillPowerUp <= 0)
         {
             drillObject.SetActive(false);
+            endPowerUpMusic(true);
         }
         else
         {
@@ -397,6 +471,8 @@ public class GameController : MonoBehaviour
         rocketParticlesDying.SetActive(false);
         playerSprite.enabled = false;
         rocketPowerUpActive = true;
+        SoundManager.soundFx.PlayRocketEndSound();
+        //startPowerUpMusic(true);
     }
 
     public void DeactivateRocketPowerUp(bool initiate)
@@ -411,6 +487,7 @@ public class GameController : MonoBehaviour
         speed = speed - reduceSpeedby;
         reduceSpeedby = 0;
         rocketSlowingDown = false;
+        endPowerUpMusic(true);
 
     }
 
