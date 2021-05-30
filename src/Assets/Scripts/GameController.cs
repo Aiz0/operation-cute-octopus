@@ -97,6 +97,8 @@ public class GameController : MonoBehaviour
     private int stars;
     private int health;
 
+    private bool playOnce = true;
+
     // ink that can be fired
     private int ink = 1;
 
@@ -181,9 +183,15 @@ public class GameController : MonoBehaviour
         score = value;
         scoreText.text = score.ToString();
 
-        if(score > PlayerPrefs.GetInt("HighScore"))
+        if (score > PlayerPrefs.GetInt("HighScore"))
         {
             newHighScoreText.gameObject.SetActive(true);
+
+            if(playOnce == true)
+            {
+                SoundManager.soundFx.PlayHighScoreSound();
+                playOnce = false;
+            }
         }
     }
 
