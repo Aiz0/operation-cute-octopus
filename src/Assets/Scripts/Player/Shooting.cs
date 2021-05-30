@@ -20,7 +20,10 @@ public class Shooting : MonoBehaviour
 
     private void OnFire(){
         Vector2 position = Input.mousePosition;
-        Fire(position);
+        if(gameController.IsRunning())
+        {
+            Fire(position);
+        }
     }
 
     private void Fire(Vector2 screenPosition) {
@@ -34,7 +37,8 @@ public class Shooting : MonoBehaviour
                 projectile,
                 transform.position,
                 Quaternion.Euler(0, 0, GetFireAngle(position))
-        );
+             );
+        SoundManager.soundFx.PlayInkSound();
     }
 
     private float GetFireAngle(Vector2 position) {

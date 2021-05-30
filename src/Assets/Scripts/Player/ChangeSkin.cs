@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class ChangeSkin : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
-
-    [SerializeField]
     private int amountOfSkins = 2;
 
-    private int currentSkin;
+    private Animator animator;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
-    void Awake()
+
+    private void Start()
     {
         SetSkin();
     }
 
     public void SetSkin()
     {
-        currentSkin = PlayerPrefs.GetInt("Skins");
-        Animator animator = player.GetComponent<Animator>();
-
-        for(int i = 0; i < amountOfSkins; i++)
+        int currentSkin = PlayerPrefs.GetInt("Skins");
+        if (currentSkin >= amountOfSkins || currentSkin < 0)
         {
-            if(i == currentSkin)
-            {
-                animator.SetInteger("Change", i);
-            }
+            currentSkin = 0;
         }
+        animator.SetInteger("Change", currentSkin);
     }
 }

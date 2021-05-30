@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 3202775878405490042}
   - component: {fileID: 3202775878405490043}
   - component: {fileID: 3202775878405490038}
+  - component: {fileID: 8606619089613754830}
+  - component: {fileID: 1708894490682301371}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -259,6 +261,8 @@ MonoBehaviour:
   - {fileID: 3202775878405490042}
   - {fileID: 3202775878405490043}
   - {fileID: 3202775878405490038}
+  squidCollider: {fileID: 1708894490682301371}
+  animator: {fileID: 3202775878405490040}
 --- !u!95 &3202775878405490040
 Animator:
   serializedVersion: 3
@@ -1655,3 +1659,32 @@ PolygonCollider2D:
       - {x: 0.6498529, y: -0.9029012}
       - {x: 0.66540736, y: -0.88349384}
       - {x: 0.6767856, y: -0.8552185}
+--- !u!114 &8606619089613754830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202775878405490032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9b6559349b92048911cf8d6cc9caa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfSkins: 3
+--- !u!70 &1708894490682301371
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202775878405490032}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.074738786, y: -0.53251094}
+  m_Size: {x: 0.5841586, y: 2.321824}
+  m_Direction: 0

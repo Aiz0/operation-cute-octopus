@@ -11,7 +11,7 @@ public class ShopController : MonoBehaviour
     private Text currentHearts, currentInk;
 
     [SerializeField]
-    private Text[] totalStarsText;
+    private Text totalStarsText;
     [SerializeField]
     private Button[] skinButton;
     [SerializeField]
@@ -43,10 +43,7 @@ public class ShopController : MonoBehaviour
     // UPDATE TOTAL STARS
     public void UpdateTotalStars()
     {
-        for(int i = 0; i < totalStarsText.Length; i++)
-        {
-            totalStarsText[i].text = PlayerPrefs.GetInt("TotalStars").ToString();
-        }
+        totalStarsText.text = PlayerPrefs.GetInt("TotalStars").ToString();
     }
 
     // BUY SKINS
@@ -95,6 +92,24 @@ public class ShopController : MonoBehaviour
         {
             PlayerPrefs.SetString("SkinList", PlayerPrefs.GetString("SkinList") + "1");
             PlayerPrefs.SetInt("Skins", 1);
+            PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - skinCost);
+            CheckCurrentSkin();
+            UpdateTotalStars();
+        }
+    }
+
+    public void BuySkin2Button()
+    {
+        if (PlayerPrefs.GetString("SkinList").Contains("2"))
+        {
+            PlayerPrefs.SetInt("Skins", 2);
+            CheckCurrentSkin();
+        }
+
+        else if (PlayerPrefs.GetInt("TotalStars") >= skinCost)
+        {
+            PlayerPrefs.SetString("SkinList", PlayerPrefs.GetString("SkinList") + "2");
+            PlayerPrefs.SetInt("Skins", 2);
             PlayerPrefs.SetInt("TotalStars", PlayerPrefs.GetInt("TotalStars") - skinCost);
             CheckCurrentSkin();
             UpdateTotalStars();
