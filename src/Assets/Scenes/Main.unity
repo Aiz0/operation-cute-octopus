@@ -176,7 +176,7 @@ AudioSource:
   m_GameObject: {fileID: 18804942}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 88c95846d91956b44b3f8a7c1a4e5ce6, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1256,7 +1256,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.6892656
+  orthographic size: 5.3333335
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1510,7 +1510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624523392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.6892657, z: 0}
+  m_LocalPosition: {x: 0, y: 7.3333335, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8408,8 +8408,8 @@ AudioSource:
   m_GameObject: {fileID: 2066335255}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a493885c80d55884c935103e1770d020, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: e213513cae738584f90b1dab45a57c5e, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 6e37bd8d999f06d4a930f6cf66927966, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
