@@ -13,7 +13,7 @@ public class SpawnPowerup : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (RandomSpawnPowerup()){
+        if (RandomSpawnPowerup() && GameController.instance.IsRunning()){
             Instantiate(GetRandomPowerUp(), transform.position, Quaternion.identity);
         }
     }
