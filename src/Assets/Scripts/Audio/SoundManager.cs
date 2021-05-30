@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
     private AudioClip[] inkSounds;
     private AudioClip[] destroySounds;
+    private AudioClip[] scoreSound;
     private int randomNumber;
 
     void Start()
@@ -16,6 +17,7 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         inkSounds = Resources.LoadAll<AudioClip>("InkSounds");
         destroySounds = Resources.LoadAll<AudioClip>("DestroySounds");
+        scoreSound = Resources.LoadAll<AudioClip>("ScoreSound");
     }
 
     public void PlayInkSound()
@@ -29,6 +31,12 @@ public class SoundManager : MonoBehaviour
     {
         randomNumber = Random.Range(0, 2);
         audioSource.PlayOneShot(destroySounds[randomNumber]);
+    }
+
+    public void PlayHighScoreSound()
+    {
+        randomNumber = Random.Range(0, 1);
+        audioSource.PlayOneShot(scoreSound[randomNumber]);
     }
 
 }
