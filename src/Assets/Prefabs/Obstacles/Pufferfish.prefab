@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -8
   m_Sprite: {fileID: 8964821807719809950, guid: 65fc9e27d6f16407b98687417c8f3f4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -159,7 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   effect: {fileID: 7030307524078844209, guid: 4f593b977d0244cefa568434a1cf46bb, type: 3}
-  other: {fileID: 0}
   rock: 0
 --- !u!114 &6030149120283425334
 MonoBehaviour:
