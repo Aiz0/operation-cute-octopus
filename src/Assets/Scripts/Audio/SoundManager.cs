@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     private AudioClip[] inkSounds;
     private AudioClip[] destroySounds;
     private AudioClip[] scoreSound;
+    private AudioClip[] starSounds;
+    private AudioClip[] rocketEndSounds;
     private int randomNumber;
 
     void Start()
@@ -18,13 +20,15 @@ public class SoundManager : MonoBehaviour
         inkSounds = Resources.LoadAll<AudioClip>("InkSounds");
         destroySounds = Resources.LoadAll<AudioClip>("DestroySounds");
         scoreSound = Resources.LoadAll<AudioClip>("ScoreSound");
+        starSounds = Resources.LoadAll<AudioClip>("StarSounds");
+        rocketEndSounds = Resources.LoadAll<AudioClip>("RocketEndSounds");
     }
 
     public void PlayInkSound()
     {
         randomNumber = Random.Range(0, 4);
         audioSource.PlayOneShot(inkSounds[randomNumber]);
-     }
+    }
 
 
     public void PlayDestroySound()
@@ -38,7 +42,16 @@ public class SoundManager : MonoBehaviour
         randomNumber = Random.Range(0, 1);
         audioSource.PlayOneShot(scoreSound[randomNumber]);
     }
+    public void PlayStarSound()
+    {
+        randomNumber = Random.Range(0, 1); //bara ett Star Sound, men kodat för att kunna lägga till fler
+        audioSource.PlayOneShot(starSounds[randomNumber]);
+    }
+
+    public void PlayRocketEndSound()
+    {
+        randomNumber = Random.Range(0, 1); //bara ett Rocket End Sound, men kodat för att kunna lägga till fler
+        audioSource.PlayOneShot(rocketEndSounds[randomNumber]);
+    }
 
 }
-
-
