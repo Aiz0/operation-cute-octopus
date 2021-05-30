@@ -39,21 +39,33 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         float direction;
-        if(axis.x == 0){
+        if (axis.x == 0)
+        {
             direction = getAcceleration();
-        }else{
+        }
+        else
+        {
             direction = axis.x;
         }
-        if(GameController.instance.IsRunning())
+        if (GameController.instance.IsRunning())
         {
             Move(direction);
             Rotate(direction);
         }
         else
         {
-            rb2D.velocity = new Vector2(0,0);
+            rb2D.velocity = new Vector2(0, 0);
+        }
+        if (Input.GetKey("t"))
+        {  //T for drill powerup devhack FTW
+            GameController.instance.InitiateDrillPowerUp(true);
+        }
+        if (Input.GetKey("y"))
+        {  //Y for rocket powerup devhack FTW
+            GameController.instance.InitiateRocketPowerUp(true);
         }
     }
 

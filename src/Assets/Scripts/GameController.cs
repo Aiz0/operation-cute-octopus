@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,6 +65,34 @@ public class GameController : MonoBehaviour
 
     private Score scores;
 
+    //Variabler som rör DrillPowerUp
+    private int maxDrill = 3; //maximalt antal användningar för DrillPowerup, skulle kunna sättas som SerializeField
+    private int drillPowerUp;
+
+    //Variabler som rör RocketPowerUp
+    private bool rocketPowerUpActive = false;
+    private float rocketTimer = 0f;
+    private float rocketMaxTime = 15f; //maxtid för raket, skulle kunna sättas som SerializeField
+    private float reduceSpeedby = 0f;
+    private float rocketSpeedFactor = 10f; //hur mycket snabbare farten temporärt ökar med RocketPowerUp, skulle kunna sättas som SerializeField
+    private bool rocketSlowingDown = false;
+
+    //Objekt som powerups påverkar
+    public GameObject drillObject;
+    public Animator drillAnimator;
+    public GameObject rocketObject;
+    public SpriteRenderer playerSprite;
+    public GameObject rocketParticles;
+    public GameObject rocketParticlesDying;
+    public ParticleSystem rocketPowerUpTransitionParticles;
+
+    //Variabler som påverkar spelarens odödlighet efter mottagen skada
+    private bool playerRecentlyHit = false;
+    private float timeSinceLastHit;
+    private int invincibilityFlashes = 10;
+    private float flashIntervalTime = 0.1f;
+    private float timeInvincible;
+
     private int score;
     private int stars;
     private int health;
@@ -100,11 +128,35 @@ public class GameController : MonoBehaviour
                 isReloading = false;
             }
         }
+        if (rocketPowerUpActive == true)
+        {
+            rocketTimer += Time.deltaTime;
+            if ((rocketTimer / 7.5f) > (rocketMaxTime / 10f))
+            {
+                if (rocketSlowingDown == false)
+                {
+                    SlowDownRocket(true);
+                }
+            }
+            if (rocketTimer >= rocketMaxTime)
+            {
+                DeactivateRocketPowerUp(true);
+            }
+        }
+        if (playerRecentlyHit)
+        {
+            timeSinceLastHit += Time.deltaTime;
+            if (timeSinceLastHit >= timeInvincible)
+            {
+                playerRecentlyHit = false;
+            }
+        }
     }
 
     private void StartGame() {
         gameRunning = true;
         gameOverPanel.SetActive(false);
+
 
         UpdateHealth();
         UpdateInk();
@@ -113,6 +165,7 @@ public class GameController : MonoBehaviour
         SetStars(0);
 
         StartCoroutine(ScoreLoop());
+        timeInvincible = flashIntervalTime * invincibilityFlashes * 2;
     }
 
     private IEnumerator ScoreLoop() {
@@ -193,7 +246,9 @@ public class GameController : MonoBehaviour
         starText.text = (stars + PlayerPrefs.GetInt("TotalStars")).ToString();
     }
 
-    public void IncrementStars(int value) {
+    public void IncrementStars(int value)
+    {
+        SoundManager.soundFx.PlayStarSound();
         SetStars(stars + value);
     }
 
@@ -234,8 +289,18 @@ public class GameController : MonoBehaviour
         healthText.text = health.ToString();
     }
 
-    public void DecrementHealth(int value) {
-        SetHealth(health - value);
+    public void DecrementHealth(int value)
+    {
+        if (playerRecentlyHit == false)
+        {
+            SetHealth(health - value);
+            playerRecentlyHit = true;
+            timeSinceLastHit = 0;
+            if (health > 0)
+            {
+                StartCoroutine(characterFlashOnHit());
+            }
+        }
     }
 
     private void SetInk(int value) {
@@ -265,6 +330,90 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         UpdateInk();
         isReloading = false;
+    }
+
+
+    private IEnumerator characterFlashOnHit()
+    {
+        Color originalColor = playerSprite.color;
+        for (int i = 0; i < invincibilityFlashes; i++)
+        {
+            playerSprite.color = Color.red;
+            yield return new WaitForSeconds(flashIntervalTime);
+            playerSprite.color = originalColor;
+            yield return new WaitForSeconds(flashIntervalTime);
+        }
+    }
+
+
+    public void InitiateDrillPowerUp(bool initiate)
+    {
+        drillObject.SetActive(initiate);
+        SetDrillPowerUp(maxDrill);
+        drillAnimator.speed = 1;
+
+    }
+
+    private void SetDrillPowerUp(int value)
+    {
+        drillPowerUp = value;
+        float drillRatio = UnityEngine.Mathf.Sqrt((float)value) / UnityEngine.Mathf.Sqrt((float)maxDrill) * 0.1f; // borrens storlek s�tts till en faktor av sqrt(anv�ndningar kvar) / sqrt(maxs anv�ndningar)
+        if (drillPowerUp <= 0)
+        {
+            drillObject.SetActive(false);
+        }
+        else
+        {
+            drillObject.transform.localScale = new Vector3(drillRatio, drillRatio, 1f);
+        }
+        if (drillPowerUp == 1)
+        {
+            drillAnimator.speed = 3;
+
+        }
+
+    }
+
+
+
+    public void DecrementDrillPowerUp(int value)
+    {
+        SetDrillPowerUp(drillPowerUp - value);
+    }
+
+    public void InitiateRocketPowerUp(bool initiate)
+    {
+        rocketPowerUpTransitionParticles.Play();
+        rocketObject.SetActive(initiate);
+        rocketParticles.SetActive(true);
+        rocketParticlesDying.SetActive(false);
+        playerSprite.enabled = false;
+        rocketPowerUpActive = true;
+    }
+
+    public void DeactivateRocketPowerUp(bool initiate)
+    {
+        rocketPowerUpTransitionParticles.Play();
+        rocketTimer = 0f;
+        rocketObject.SetActive(false);
+        rocketParticles.SetActive(true);
+        rocketParticlesDying.SetActive(false);
+        playerSprite.enabled = true;
+        rocketPowerUpActive = false;
+        speed = speed - reduceSpeedby;
+        reduceSpeedby = 0;
+        rocketSlowingDown = false;
+
+    }
+
+    public void SlowDownRocket(bool initiate)
+    {
+        speed = speed - (reduceSpeedby * 0.75f);
+        reduceSpeedby = reduceSpeedby - (reduceSpeedby * 0.75f);
+        rocketSlowingDown = true;
+        rocketParticles.SetActive(false);
+        rocketParticlesDying.SetActive(true);
+        SoundManager.soundFx.PlayRocketEndSound();
     }
 
     public bool IsRunning() {
@@ -301,10 +450,23 @@ public class GameController : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        if (maxSpeed > speed) speed += increaseSpeedBy;
+        if (maxSpeed > speed)
+        {
+            if (rocketPowerUpActive)
+            {
+                speed += (increaseSpeedBy * rocketSpeedFactor);
+                reduceSpeedby += (increaseSpeedBy * rocketSpeedFactor);
+            }
+            else
+            {
+                speed += increaseSpeedBy;
+            }
+        }
+
     }
 
-    public void Restart() {
+        public void Restart()
+    {
         Debug.Log("Restarting Game!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
